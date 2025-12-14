@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   ft_atoll.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 20:06:56 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/14 22:00:57 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/14 22:41:23 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,13 @@ long long	ft_atoll(char *str)
 
 	index = 0;
 	result = 0;
-	sign = 0;
+	sign = 1;
 	if (str[index] == '-')
 	{
-		sign++;
+		sign *= -1;
 		index++;
 	}
 	while (str[index])
 		result = (result * 10) + (str[index++] - '0');
-	if (sign)
-		return (-result);
-	return (result);
+	return (result * sign);
 }
