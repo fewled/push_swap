@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicate.c                                  :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 19:24:38 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/14 22:16:43 by vpolard          ###   ########.fr       */
+/*   Created: 2025/12/14 20:06:56 by vpolard           #+#    #+#             */
+/*   Updated: 2025/12/14 22:00:57 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_duplicate(int	len, int *list)
-{
-	int	index;
-	int	ping;
+#include "lib.h"
 
-	ping = 0;
-	while (ping < len)
+long long	ft_atoll(char *str)
+{
+	long long	result;
+	int			sign;
+	int			index;
+
+	index = 0;
+	result = 0;
+	sign = 0;
+	if (str[index] == '-')
 	{
-		index = ping + 1;
-		while (index < len)
-		{
-			if (list[ping] == list[index])
-				return (1);
-			index++;
-		}
-		ping++;
+		sign++;
+		index++;
 	}
-	return (0);
+	while (str[index])
+		result = (result * 10) + (str[index++] - '0');
+	if (sign)
+		return (-result);
+	return (result);
 }

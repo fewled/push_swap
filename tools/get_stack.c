@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:01:34 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/14 20:18:34 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/14 22:16:54 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	*get_stack(int arg_count, char **arg_list)
 		if (!ft_isnum(arg_list[index]))
 			return (ft_puterr("[x] Invalid argument(s) type"),
 				free(list), NULL);
-		if (!ft_isint(ft_atoi(arg_list[index])))
+		if (!ft_isint(ft_atoll(arg_list[index])))
 			return (ft_puterr("[x] Invalid argument(s) range"), 
 				free(list), NULL);
 		list[index] = ft_atoi(arg_list[index]);
 		index++;
 	}
-	if (!check_duplicate(arg_count, list))
+	if (check_duplicate(arg_count, list))
 		return (ft_puterr("[x] Duplicate argument(s) found"),
 			free(list), NULL);
 	return (list);
