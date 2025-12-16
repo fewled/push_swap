@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   new_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 17:29:48 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/16 12:55:28 by vpolard          ###   ########.fr       */
+/*   Created: 2025/12/16 14:31:18 by vpolard           #+#    #+#             */
+/*   Updated: 2025/12/16 14:31:19 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools/tools.h"
+#include "operations.h"
 
-int	main(int arg_count, char **arg_list)
+t_stack	*new_stack(int size)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack *new_stack;
 
-	a = new_stack();
-	b = new_stack();
-	if (!a || !b)
+	new_stack = malloc(sizeof(t_stack));
+	if (!new_stack)
 		return (NULL);
-	a->list = get_stack(arg_count, arg_list);
-	if (!a->list)
+	new_stack->list = malloc(sizeof(int) * size);
+	if (!new_stack->list)
 		return (NULL);
-	a->top = arg_count - 2;
-	b->list = malloc(sizeof(int) * (arg_count - 1));
-	if (!b->list)
-		return (NULL);
-	b->top = 0;
-	sort(a, b);
-	free(a);
-	free(b);
+	new_stack->top = 0;
+	return (new_stack);
 }
