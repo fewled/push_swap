@@ -19,6 +19,7 @@ typedef struct s_stack
 {
 	int	*data;
 	int	top;
+	int	capacity;
 }		t_stack;
 
 t_stack	*new_stack(int size);

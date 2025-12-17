@@ -23,5 +23,6 @@ t_stack	*new_stack(int size)
 	if (!instance->data)
 		return (free(instance), NULL);
 	instance->top = 0;
+	instance->capacity = size;
 	return (instance);
 }

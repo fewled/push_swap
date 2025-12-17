@@ -18,6 +18,8 @@ void	swap(t_stack *instance)
 	int	top;
 	int	temp;
 
+	if (instance->top < 1)
+		return (ft_puterr("[i] Not enough data to swap"));
 	data = instance->data;
 	top = instance->top;
 	temp = data[top];
