@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   operations.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 18:05:01 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/17 09:31:18 by vpolard          ###   ########.fr       */
+/*   Created: 2025/12/17 08:13:56 by vpolard           #+#    #+#             */
+/*   Updated: 2025/12/17 08:14:53 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#ifndef OPERATIONS_H
+# define OPERATIONS_H
 
-# include "../lib/lib.h"
-# include "../operations/operations.h"
-
-typedef struct s_stack
-{
-	int	*data;
-	int	top;
-}		t_stack;
-
-t_stack	*new_stack(int size);
-int	load_args(t_stack *instance, int arg_count, char **arg_list);
-int		check_duplicate(int len, int *list);
-void	sort(t_stack *a, t_stack *b, int size);
-void	free_stack(t_stack *instance);
+# include "../tools/tools.h"
 
 #endif
+
+
