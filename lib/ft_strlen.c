@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:08:16 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/14 18:10:20 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/27 18:58:37 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,4 @@ int	ft_strlen(char *str)
 	while (str[index])
 		index++;
 	return (index);
-
 }

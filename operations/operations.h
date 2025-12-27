@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 08:13:56 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/17 10:15:27 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/27 19:17:58 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include "../tools/tools.h"
 
-void	swap(t_stack *instance);
 void	push(t_stack *from, t_stack *to);
+void	swap(t_stack *stack);
+void	rotate(t_stack *stack);
 
 #endif

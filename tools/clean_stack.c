@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicate.c                                  :+:      :+:    :+:   */
+/*   clean_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 19:24:38 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/27 18:59:30 by vpolard          ###   ########.fr       */
+/*   Created: 2025/12/27 18:26:07 by vpolard           #+#    #+#             */
+/*   Updated: 2025/12/27 18:27:47 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	check_duplicate(int len, int *list)
+void	clean_stack(t_stack stack)
 {
-	int	index;
-	int	ping;
-
-	ping = 0;
-	while (ping < len)
-	{
-		index = ping + 1;
-		while (index < len)
-		{
-			if (list[ping] == list[index])
-				return (1);
-			index++;
-		}
-		ping++;
-	}
-	return (0);
+	if (stack->content)
+		free(stack->content);
+	if (stack)
+		free(stack);
 }
