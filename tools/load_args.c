@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:01:34 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/17 09:33:43 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/27 17:33:36 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	load_args(t_stack *instance, int arg_count, char **arg_list)
 		if (!ft_isint(ft_atoll(arg_list[index])))
 			return (ft_puterr("[x] Invalid argument(s) range"),
 				free_stack(instance), 0);
-		instance->data[index] = ft_atoi(arg_list[index]);
+		instance->content[index] = ft_atoi(arg_list[index]);
 		index++;
 	}
 	if (check_duplicate(arg_count, instance->data))

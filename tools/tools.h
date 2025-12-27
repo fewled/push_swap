@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:05:01 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/17 10:25:17 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/27 17:30:57 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_stack
 {
-	int	*data;
+	int	*content;
 	int	top;
 	int	capacity;
 }		t_stack;

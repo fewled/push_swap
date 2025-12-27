@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 08:21:29 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/17 08:52:20 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/27 17:33:47 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stack	*new_stack(int size)
 	instance = malloc(sizeof(t_stack));
 	if (!instance)
 		return (NULL);
-	instance->data = malloc(sizeof(int) * size);
+	instance->content = malloc(sizeof(int) * size);
 	if (!instance->data)
 		return (free(instance), NULL);
 	instance->top = 0;
