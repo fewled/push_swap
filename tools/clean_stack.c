@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	clean_stack(t_stack stack)
+#include "tools.h"
+
+void	clean_stack(t_stack *stack)
 {
 	if (stack->content)
 		free(stack->content);

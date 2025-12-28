@@ -10,25 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools.h"
+#include "operations.h"
 
 void	rotate(t_stack *stack)
 {
 	int	*rotated;
 	int	index;
 
-	if stack->top < 1
+	if (stack->top < 1)
 		return ;
 	rotated = malloc(sizeof(int) * stack->capacity);
 	if (!rotated)
 		return (ft_puterr("[x] Failed allocation at rotate"));
 	index = 0;
 	rotated[stack->top] = stack->content[index++];
-	while (index < instance->top)
+	while (index < stack->top)
 	{
 		rotated[index - 1] = stack->content[index];
 		index++;
 	}
 	free(stack->content);
-	stack->data = rotated;
+	stack->content = rotated;
 }

@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	clean_package(t_package package)
+#include "tools.h"
+
+void	clean_package(t_package *package)
 {
 	if (package->data)
 		free(package->data);

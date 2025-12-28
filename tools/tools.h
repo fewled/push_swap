@@ -30,11 +30,11 @@ typedef struct s_stack
 
 // Constructors
 t_package	*new_package(int arg_count, char **arg_list);
-t_stack		*new_stack(int size);
+t_stack		*new_stack(t_package *package);
 // Helpers
 int			check_duplicate(int len, int *list);
 // Cleaners
-void		clean_package(t_package package);
-void		clean_stack(t_stack stack);
+void		clean_package(t_package *package);
+void		clean_stack(t_stack *stack);
 
 #endif

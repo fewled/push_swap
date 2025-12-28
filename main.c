@@ -19,6 +19,8 @@ int	main(int arg_count, char **arg_list)
 	t_stack		*a;
 	t_stack		*b;
 
+	if (arg_count < 3)
+		return (ft_puterr("[x] Not enough args."), 1);
 	package = new_package(arg_count, arg_list);
 	a = new_stack(package);
 	b = new_stack(package);
