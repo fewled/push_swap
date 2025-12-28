@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools.h"
+#include "operations.h"
 
 void	rev_rotate(t_stack *stack)
 {
@@ -23,10 +23,10 @@ void	rev_rotate(t_stack *stack)
 		if (!rotated)
 			return (ft_puterr("[x] Failed allocation at rev_rotate."));
 		index = 0;
-		rotated[index++] = stack->content[stack->top];
-		while (index < stack->top)
+		rotated[stack->top] = stack->content[index++];
+		while (index <= stack->top)
 		{
-			rotated[index] = stack->content[index - 1];
+			rotated[index - 1] = stack->content[index];
 			index++;
 		}
 		free(stack->content);
