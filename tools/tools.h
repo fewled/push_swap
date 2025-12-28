@@ -18,7 +18,7 @@
 typedef struct s_package
 {
 	int	*data;
-	int	max;
+	int	size;
 }		t_package;
 
 typedef struct s_stack

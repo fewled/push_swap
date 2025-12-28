@@ -15,7 +15,7 @@
 t_package	*new_package(int arg_count, char **arg_list)
 {
 	t_package	package;
-	int			index;	
+	int			index;
 
 	if (arg_count < 3)
 		return (0);
@@ -38,5 +38,5 @@ t_package	*new_package(int arg_count, char **arg_list)
 	}
 	if (check_duplicate(arg_count, package->data))
 		return (free_package(package), 0);
-	return ((package->max = arg_count - 1), package);
+	return ((package->size = arg_count - 1), package);
 }

@@ -12,17 +12,26 @@
 
 #include "tools.h"
 
-t_stack	*new_stack(int size)
+t_stack	*new_stack(t_package package)
 {
-	t_stack	*instance;
+	t_stack	*stack;
 
-	instance = malloc(sizeof(t_stack));
-	if (!instance)
-		return (NULL);
-	instance->content = malloc(sizeof(int) * size);
-	if (!instance->data)
-		return (free(instance), NULL);
-	instance->top = 0;
-	instance->capacity = size;
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (0);
+	if (package->data)
+	{
+		stack->content = package->data;
+		stack->top = package->max;
+		package->data = 0;
+	}
+	else
+	{
+		stack->content = malloc(sizeof(int) * package->max);
+		if (!stack->content)
+			return (free(stack), 0);
+		stack->top = -1;
+	}
+	instance->capacity = package->max;
 	return (instance);
 }
