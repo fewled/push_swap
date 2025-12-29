@@ -31,10 +31,18 @@ typedef struct s_stack
 	int	pivot;
 }		t_stack;
 
+//			Constructors
 t_package	*new_package(int arg_count, char **arg_list);
 t_stack		*new_stack(t_package *package);
+//			Raw operations
+void		push(t_stack *from, t_stack *to);
+void		swap(t_stack *stack);
+void		rotate(t_stack *stack);
+void		rev_rotate(t_stack *stack);
+//			Tools
 void		find_median(t_package *package);
 void		sort(t_stack *a, t_stack *b, t_package *package);
+//			Cleaners
 void		clean_package(t_package *package);
 void		clean_stack(t_stack *stack);
 

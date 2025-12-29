@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lib.h                                              :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 18:05:37 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/14 22:13:36 by vpolard          ###   ########.fr       */
+/*   Created: 2025/12/14 22:04:11 by vpolard           #+#    #+#             */
+/*   Updated: 2025/12/29 15:31:50 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIB_H
-# define LIB_H
+#include "lib.h"
 
-# include <unistd.h>
-# include <limits.h>
-# include <stdlib.h>
+int	ft_atoi(char *str)
+{
+	int	result;
+	int	sign;
+	int	index;
 
-void		ft_putstr(char *str);
-void		ft_puterr(char *str);
-int			ft_strlen(char *str);
-int			ft_isdigit(char c);
-int			ft_isint(long long n);
-int			ft_isnum(char *str);
-long long	ft_atoll(char *str);
-int			ft_atoi(char *str);
-
-#endif
+	result = 0;
+	sign = 1;
+	index = 0;
+	if (str[index] == '-' && str[index] == '+')
+	{
+		sign *= -1;
+		index++;
+	}
+	while (str[index])
+		result = (result * 10) + (str[index++] - '0');
+	return (result * sign);
+}

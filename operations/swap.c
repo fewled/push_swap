@@ -3,26 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 10:15:40 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/27 19:17:21 by vpolard          ###   ########.fr       */
+/*   Created: 2025/12/29 18:57:56 by vpolard           #+#    #+#             */
+/*   Updated: 2025/12/29 18:57:56 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-void	swap(t_stack *stack)
+void	sa(t_stack *a)
 {
-	int	*content;
-	int	top;
-	int	temp;
+	swap(a);
+	ft_putstr("sa");
+}
 
-	if (stack->top < 1)
-		return ;
-	content = stack->content;
-	top = stack->top;
-	temp = content[top];
-	content[top] = content[top - 1];
-	content[top - 1] = temp;
+void	sb(t_stack *b)
+{
+	swap(b);
+	ft_putstr("sb");
+}
+
+void	ss(t_stack *a, t_stack *b)
+{
+	swap(a);
+	swap(b);
+	ft_putstr("ss");
 }

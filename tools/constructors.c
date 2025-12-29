@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_package.c                                      :+:      :+:    :+:   */
+/*   constructors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -46,7 +46,7 @@ t_package	*new_package(int arg_count, char **arg_list)
 		return (clean_package(package), (t_package *)0);
 	index = 0;
 	arg_list++;
-	while (index < arg_count) 
+	while (index < arg_count)
 	{
 		if (!ft_isnum(arg_list[index]))
 			return (clean_package(package), (t_package *)0);
@@ -57,6 +57,32 @@ t_package	*new_package(int arg_count, char **arg_list)
 	}
 	if (find_duplicate(package->data, arg_count))
 		return (clean_package(package), (t_package *)0);
-	return (package->size = arg_count, package->is_valid = 1, 
+	return (package->size = arg_count, package->is_valid = 1,
 			find_median(package), package);
+}
+
+t_stack	*new_stack(t_package *package)
+{
+	t_stack	*stack;
+
+	if (!package)
+		return ((t_stack *)0);
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return ((t_stack *)0);
+	if (package->data)
+	{
+		stack->content = package->data;
+		stack->top = package->size - 1;
+		package->data = (int *)0;
+	}
+	else
+	{
+		stack->content = malloc(sizeof(int) * package->size);
+		if (!stack->content)
+			return (free(stack), (t_stack *)0);
+		stack->top = -1;
+	}
+	stack->capacity = package->size;
+	return (stack);
 }

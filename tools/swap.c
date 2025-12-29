@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
+/*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 18:58:22 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/29 18:58:23 by vpolard          ###   ########.fr       */
+/*   Created: 2025/12/17 10:15:40 by vpolard           #+#    #+#             */
+/*   Updated: 2025/12/27 19:17:21 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-void	pa(t_stack *b, t_stack *a)
+void	swap(t_stack *stack)
 {
-	push(b, a);
-	ft_putstr("pa");
-}
+	int	*content;
+	int	top;
+	int	temp;
 
-void	pb(t_stack *a, t_stack *b)
-{
-	push(a, b);
-	ft_putstr("pb");
+	if (stack->top < 1)
+		return ;
+	content = stack->content;
+	top = stack->top;
+	temp = content[top];
+	content[top] = content[top - 1];
+	content[top - 1] = temp;
 }

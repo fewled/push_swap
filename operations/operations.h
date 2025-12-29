@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 08:13:56 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/27 19:17:58 by vpolard          ###   ########.fr       */
+/*   Created: 2025/12/29 18:31:59 by vpolard           #+#    #+#             */
+/*   Updated: 2025/12/29 18:40:43 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,16 @@
 
 # include "../tools/tools.h"
 
-void	push(t_stack *from, t_stack *to);
-void	swap(t_stack *stack);
-void	rotate(t_stack *stack);
-void	rev_rotate(t_stack *stack);
+void	sa(t_stack *a);
+void	sb(t_stack *a);
+void	ss(t_stack *a, t_stack *b);
+void	pa(t_stack *b, t_stack *a);
+void	pb(t_stack *a, t_stack *b);
+void 	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
 #endif
