@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 08:21:29 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/27 17:33:47 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/29 15:14:40 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ t_stack	*new_stack(t_package *package)
 	if (package->data)
 	{
 		stack->content = package->data;
-		stack->top = package->size;
-		package->data = 0;
+		stack->top = package->size - 1;
+		package->data = (int *)0;
 	}
 	else
 	{

@@ -6,12 +6,11 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 17:29:48 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/27 18:57:55 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/29 15:30:55 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tools/tools.h"
-#include <stdio.h>
 
 int	main(int arg_count, char **arg_list)
 {
@@ -26,14 +25,15 @@ int	main(int arg_count, char **arg_list)
 	b = new_stack(package);
 	if (!package || !a || !b)
 	{
-		ft_puterr("[x] Error, check for :");
-		ft_puterr("[>] At least 2 numbers to sort.");
-		ft_puterr("[>] Each argument is of type and size 'int'.");
-		ft_puterr("[>] No duplicates.");
+		ft_puterr("[x] ERROR");
+		ft_puterr("[i] At least 2 numbers.");
+		ft_puterr("[i] Each of type and size 'int'.");
+		ft_puterr("[i] No duplicates.");
 		return (1);
 	}
+	// sort(a, b, package);
 	clean_package(package);
-	// sort(a, b);
 	clean_stack(a);
 	clean_stack(b);
 }
+

@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 13:10:39 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/28 14:34:17 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/29 13:41:11 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	rotate(t_stack *stack)
 	if (!rotated)
 		return (ft_puterr("[x] Failed allocation at rotate"));
 	index = 0;
-	rotated[index++] = stack->content[stack->top];
-	while (index <= stack->top)
+	rotated[0] = stack->content[stack->top];
+	while (index < stack->top)
 	{
-		rotated[index] = stack->content[index - 1];
+		rotated[index + 1] = stack->content[index];
 		index++;
 	}
 	free(stack->content);
