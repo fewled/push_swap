@@ -23,7 +23,6 @@ int			ft_strlen(char *str);
 int			ft_isdigit(char c);
 int			ft_isint(long long n);
 int			ft_isnum(char *str);
-int			ft_atoi(char *str);
 long long	ft_atoll(char *str);
 
 #endif
