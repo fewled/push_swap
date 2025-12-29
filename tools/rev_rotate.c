@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
+#include "tools.h"
 
 void	rev_rotate(t_stack *stack)
 {

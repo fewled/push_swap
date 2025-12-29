@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "operations.h"
+#include "tools.h"
 
 void	push(t_stack *from, t_stack *to)
 {
