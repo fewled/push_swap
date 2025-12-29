@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:05:01 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/29 15:31:02 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/29 15:39:45 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_stack
 t_package	*new_package(int arg_count, char **arg_list);
 t_stack		*new_stack(t_package *package);
 void		find_median(t_package *package);
+void		sort(t_stack *a, t_stack *b, t_package *package);
 void		clean_package(t_package *package);
 void		clean_stack(t_stack *stack);
 

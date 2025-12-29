@@ -12,11 +12,11 @@ LIB			= lib/ft_atoi.c \
 			  lib/ft_putstr.c \
 			  lib/ft_strlen.c
 
-TOOLS		= tools/clean_package.c \
-			  tools/clean_stack.c \
+TOOLS		= tools/cleaners.c \
 			  tools/new_package.c \
 			  tools/new_stack.c \
-			  tools/find_median.c
+			  tools/find_median.c \
+			  tools/sort.c
 
 OPERATIONS	= operations/push.c \
 			  operations/swap.c \
