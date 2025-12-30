@@ -6,11 +6,10 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:34:47 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/29 16:24:07 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/30 07:37:41 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "tools.h"
 #include "../operations/operations.h"
 
@@ -19,29 +18,22 @@ void	display(t_stack *stack)
 	int	index;
 
 	index = 0;
-	printf("[>] ");
+	ft_putstr("[>] ");
 	while (index <= stack->top)
-		printf("%d ", stack->content[index++]);
-	printf("\n");
-}
-
-void	divide(t_stack *a, t_stack *b, t_package *package)
-{
-	int	index;
-
-	index = 0;
-	while (index < package->size)
 	{
-		if (a->content[a->top] > package->median)
-			push(a, b);
-		else
-			rotate(a);
-		index++;
+		ft_putnbr(stack->content[index++]);
+		ft_putstr(" ");
 	}
+	ft_putstr("\n");
 }
 
 void	sort(t_stack *a, t_stack *b, t_package *package)
 {
-	printf("[i] Median : %d\n", package->median);
-	divide(a, b, package);
+	(void)package;
+	display(a);
+	display(b);
+	sa(a);
+	pb(a, b);
+	display(a);
+	display(b);
 }

@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:06:37 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/14 20:35:38 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/30 07:13:24 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,4 @@
 void	ft_putstr(char *str)
 {
 	write(1, str, ft_strlen(str));
-	write(1, "\n", 1);
 }

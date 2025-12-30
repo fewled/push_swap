@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 10:15:40 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/27 19:17:21 by vpolard          ###   ########.fr       */
+/*   Created: 2025/12/30 07:23:29 by vpolard           #+#    #+#             */
+/*   Updated: 2025/12/30 07:26:14 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools.h"
+#include "lib.h"
 
-void	swap(t_stack *stack)
+void	ft_putnbr(int n)
 {
-	int	*content;
-	int	top;
-	int	temp;
+	char	c;
 
-	if (stack->top < 1)
-		return ;
-	content = stack->content;
-	top = stack->top;
-	temp = content[top];
-	content[top] = content[top - 1];
-	content[top - 1] = temp;
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		n *= -1;
+	}
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	c = (n % 10) + '0';
+	write(1, &c, 1);
 }

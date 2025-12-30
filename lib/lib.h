@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:05:37 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/14 22:13:36 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/30 07:26:41 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 
 void		ft_putstr(char *str);
+void		ft_putnbr(int n);
 void		ft_puterr(char *str);
 int			ft_strlen(char *str);
 int			ft_isdigit(char c);

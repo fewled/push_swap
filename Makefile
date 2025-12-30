@@ -10,13 +10,10 @@ LIB			= lib/ft_atoi.c \
 			  lib/ft_isnum.c \
 			  lib/ft_puterr.c \
 			  lib/ft_putstr.c \
-			  lib/ft_strlen.c
+			  lib/ft_strlen.c \
+			  lib/ft_putnbr.c
 
-TOOLS		= tools/push.c \
-			  tools/swap.c \
-			  tools/rotate.c \
-			  tools/rev_rotate.c \
-			  tools/cleaners.c \
+TOOLS		= tools/cleaners.c \
 			  tools/constructors.c \
 			  tools/find_median.c \
 			  tools/sort.c
