@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 12:11:11 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/29 13:12:56 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/30 10:09:15 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,14 @@ static void	bubble_sort(int *list, int size)
 	}
 }
 
-void	find_median(t_package *package)
+void	find_median(t_stack *stack)
 {
 	int	*list;
 
-	list = copy(package->data, package->size);
+	list = copy(stack->content, stack->top + 1);
 	if (!list)
-	{
-		package->is_valid = 0;
-		return ;
-	}
-	bubble_sort(list, package->size);
-	package->median = list[package->size / 2];
+		return ; 
+	bubble_sort(list, (stack->top + 1));
+	stack->pivot = list[(stack->top + 1) / 2];
 	free(list);
 }

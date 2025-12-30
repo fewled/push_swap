@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:02:31 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/30 08:16:56 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/30 10:26:08 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ t_package	*new_package(int arg_count, char **arg_list)
 	}
 	if (find_duplicate(package->data, arg_count))
 		return (clean_package(package), (t_package *)0);
-	return (package->size = arg_count, package->is_valid = 1,
-			find_median(package), package);
+	return (package->size = arg_count, package);
 }
 
 t_stack	*new_stack(t_package *package)
