@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:05:01 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/30 09:49:31 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/31 08:48:05 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,27 @@
 
 # include "../lib/lib.h"
 
-typedef struct s_package
-{
-	int	*data;
-	int	size;
-	// int	is_valid;
-}		t_package;
-
 typedef struct s_stack
 {
-	int	*content;
-	int	top;
-	int	capacity;
-	int	pivot;
-}		t_stack;
+	int		*content;
+	int		capacity;
+	char	id;
+	int		top;
+	int		pivot;
+}			t_stack;
 
-//			Constructors
+typedef struct s_package
+{
+	t_stack	*a;
+	t_stack	*b;
+	int		*data;
+	int		size;
+}			t_package;
+
+
 t_package	*new_package(int arg_count, char **arg_list);
-t_stack		*new_stack(t_package *package);
-//			Tools
 void		find_median(t_stack *stack);
-void		sort(t_stack *a, t_stack *b, t_package *package);
-//			Cleaners
-void		clean_package(t_package *package);
-void		clean_stack(t_stack *stack);
+void		sort(t_package *package);
+void		clean(t_package *package);
 
 #endif

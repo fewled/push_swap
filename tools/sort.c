@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:34:47 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/30 10:09:44 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/31 08:38:08 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,13 @@ static void	shrink(t_stack *a, t_stack *b)
 	}
 }
 
-void	sort(t_stack *a, t_stack *b, t_package *package)
+void	sort(t_package *package)
 {
-	(void)package;
+	t_stack	*a;
+	t_stack *b;
+
+	a = package->a;
+	b = package->b;
 	display(a);
 	display(b);
 	shrink(a, b);

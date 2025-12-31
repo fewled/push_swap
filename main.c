@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 17:29:48 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/30 08:13:17 by vpolard          ###   ########.fr       */
+/*   Updated: 2025/12/31 08:49:03 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,13 @@
 int	main(int arg_count, char **arg_list)
 {
 	t_package	*package;
-	t_stack		*a;
-	t_stack		*b;
 
 	if (arg_count == 1)
 		return (1);
 	if (arg_count < 3)
 		return (ft_puterr("[x] Not enough args."), 1);
 	package = new_package(arg_count, arg_list);
-	a = new_stack(package);
-	b = new_stack(package);
-	if (!package || !a || !b)
+	if (!package)
 	{
 		ft_puterr("[x] ERROR");
 		ft_puterr("[i] At least 2 numbers.");
@@ -33,9 +29,7 @@ int	main(int arg_count, char **arg_list)
 		ft_puterr("[i] No duplicates.");
 		return (1);
 	}
-	sort(a, b, package);
-	clean_package(package);
-	clean_stack(a);
-	clean_stack(b);
+	sort(package);
+	clean(package);
 }
 
