@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 17:29:48 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/31 08:49:03 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/01/22 11:43:35 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int arg_count, char **arg_list)
 		ft_puterr("[i] No duplicates.");
 		return (1);
 	}
-	sort(package);
 	clean(package);
 }
 

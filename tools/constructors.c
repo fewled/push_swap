@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:02:31 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/31 09:07:11 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/01/22 13:11:47 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static int	find_duplicate(t_package *package)
 	}
 	return (0);
 }
-
 
 static int	feed_package(t_package *package, int arg_count, char **arg_list)
 {

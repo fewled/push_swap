@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:05:37 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/30 07:26:41 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/01/22 13:21:00 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int			ft_isint(long long n);
 int			ft_isnum(char *str);
 long long	ft_atoll(char *str);
 int			ft_atoi(char *str);
+char		**ft_split(char *str);
 
 #endif

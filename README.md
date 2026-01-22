@@ -15,7 +15,7 @@ The first one is using exactly two stacks. The other is using the followed moves
 |-- push-swap
 |---- lib                      // Libraby-like functions  (e.g. ft_putstr, ft_atoi...)
 |---- operations               // Allowed moves associated functions (e.g. pa, rrb...)
-|---- tools                    // Additional stack manipulation functions (e.g. find_median)
+|---- tools                    // Additional stack manipulation functions (e.g. constructors, find_median)
 ```
 
 ### Structures
