@@ -2,8 +2,8 @@
 
 ### Boundaries
 
-The main goal is to sort a list of disordered number complying with a few constraints.  
-The first one is using exactly two stacks. The other is using the followed moves :  
+The main goal is to sort a list of disordered number respecting some constraints.  
+The first one is using exactly two stacks. The other is using only the moves bellow:  
   - Push the top element of a stack on top of the other stack.
   - Swap the first and second elements of a stack
   - Bring the bottom element to the top of the stack
@@ -12,10 +12,10 @@ The first one is using exactly two stacks. The other is using the followed moves
 ### Directory
 
 ```
-|-- push-swap
-|---- lib                      // Libraby-like functions  (e.g. ft_putstr, ft_atoi...)
-|---- operations               // Allowed moves associated functions (e.g. pa, rrb...)
-|---- tools                    // Additional stack manipulation functions (e.g. constructors, find_median)
+push-swap
+|-- lib             // Libraby-like functions  (e.g. ft_putstr, ft_atoi...)
+|-- operations      // Allowed moves associated functions (e.g. pa, rrb...)
+`-- tools           // Additional stack manipulation functions (e.g. constructors, find_median)
 ```
 
 ### Structures
