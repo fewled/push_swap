@@ -6,11 +6,14 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:02:31 by vpolard           #+#    #+#             */
-/*   Updated: 2026/01/22 13:11:47 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/01/28 20:02:27 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tools.h"
+
+// Note for current commit:
+// Constructors are broken and needs some refactoring
 
 static int	find_duplicate(t_package *package)
 {
@@ -36,32 +39,48 @@ static int	find_duplicate(t_package *package)
 
 static int	feed_package(t_package *package, int arg_count, char **arg_list)
 {
-	int	index;
+	int		index;
+	char	**list;
 
 	arg_count--;
 	arg_list++;
 
-	// Handle single argument case
-		// Split the argument into separated strings
-		// Allocate package->data using the number of word from the argument
-		// Iterate over each and check for incorrect values and place them into package->data
-		// If an invalid argument is spotted, free in the order bellow :
-		//	-> Free each argument of the splited argument
-		//	-> Free the holder of those freed arguments
-		//	-> Return 0 to indicate failure to the new_pacakge() funtion
-		// Even if arguments are correct, the temporary splitted argument must be freed
-		//	-> Free each argument of the splitted arguments
-		//	-> Free the holder of those freed arguments
-		// HINT : Because the freeing process is twice the same, create a function that wraps it !
-	// Handle multi-argument case
-		// Allocate package->data using arg_count
-		// Check for failure and return 0 in such case
-		// Iterate over each and check for incorect values
-		// If invalid argument, only return 0 since the new_package() function will handle cleaning
-
+	package->data = malloc(sizeof(int) * arg_count);
+	if (!package->data)
+		return (0);
+	index = arg_count - 1;
+	if (arg_count == 1 && ft_count_words(*arg_list) > 1)
+	{
+		list = ft_split(*arg_list);
+		if (!list)
+			return (0);
+		while (index >= 0)
+		{
+			if (!ft_isnum(list[index]))
+				return (clean_iter(list), clean(package), 0);
+			if (!ft_isint(ft_atoll(list[index])))
+				return (clean_iter(list), clean(package), 0);
+			package->data[index] = ft_atoi(list[(arg_count - 1) - index]);
+			index--;
+		}
+		clean_iter(list);
+	}
+	else
+	{
+		while (index >= 0)
+		{
+			if (!ft_isnum(arg_list[index]))
+				return (clean(package), 0);
+			if (!ft_isint(ft_atoll(arg_list[index])))
+				return (clean(package), 0);
+			package->data[index] = ft_atoi(arg_list[(arg_count - 1) - index]);
+			index--;
+		}
+	}
+	return (1);
 }
 
-static t_stack	*new_stack(t_package *package) // CORRECT
+static t_stack	*new_stack(t_package *package)
 {
 	t_stack	*stack;
 
@@ -85,7 +104,7 @@ static t_stack	*new_stack(t_package *package) // CORRECT
 	return (stack);
 }
 
-static void	set_fields(t_package *package, int size) // CORRECT
+static void	set_fields(t_package *package, int size)
 {
 	package->data = (int *)0;
 	package->a = (t_stack *)0;

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   suggest_hints.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 17:29:48 by vpolard           #+#    #+#             */
-/*   Updated: 2026/01/28 18:58:56 by vpolard          ###   ########.fr       */
+/*   Created: 2026/01/28 18:35:47 by vpolard           #+#    #+#             */
+/*   Updated: 2026/01/28 18:48:49 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools/tools.h"
-#include "alerts/alerts.h"
+#include "alerts.h"
 
-int	main(int arg_count, char **arg_list)
+void	suggest_hints()
 {
-	t_package	*package;
-
-	if (arg_count < 2)
-		return (missing_alert(), 1);
-	if (!(package = new_package(arg_count, arg_list)))
-		return (suggest_hints(), 1);
-	// sort(package);
-	clean(package);
+	ft_putstr("\n");
+	ft_putstr("----------------------------------\n");
+	ft_putstr("[x] Error while parsing arguments.\n");
+	ft_putstr("----------------------------------\n");
+	ft_putstr("[i] At least 2 numbers are needed.\n");
+	ft_putstr("[i] Each one should fit in an int.\n");
+	ft_putstr("[i] There should not be duplicate.\n");
+	ft_putstr("\n");
 }
-

@@ -24,7 +24,10 @@ OPERATIONS	= operations/push.c \
 			  operations/rotate.c \
 			  operations/rev_rotate.c
 
-SRCS		= main.c $(LIB) $(TOOLS) $(OPERATIONS)
+ALERTS      = alerts/missing_alert.c \
+			  alerts/suggest_hints.c
+
+SRCS		= main.c $(LIB) $(TOOLS) $(OPERATIONS) $(ALERTS)
 OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)

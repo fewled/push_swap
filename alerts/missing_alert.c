@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   missing_alert.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/14 17:29:48 by vpolard           #+#    #+#             */
-/*   Updated: 2026/01/28 18:58:56 by vpolard          ###   ########.fr       */
+/*   Created: 2026/01/28 18:41:37 by vpolard           #+#    #+#             */
+/*   Updated: 2026/01/28 18:46:18 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools/tools.h"
-#include "alerts/alerts.h"
+#include "alerts.h"
 
-int	main(int arg_count, char **arg_list)
+void	missing_alert()
 {
-	t_package	*package;
-
-	if (arg_count < 2)
-		return (missing_alert(), 1);
-	if (!(package = new_package(arg_count, arg_list)))
-		return (suggest_hints(), 1);
-	// sort(package);
-	clean(package);
+	ft_putstr("\n");
+	ft_putstr("------------------------------\n");
+	ft_putstr("[x] No argument were provided.\n");
+	ft_putstr("------------------------------\n");
+	ft_putstr("\n");
 }
-
