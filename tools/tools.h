@@ -18,10 +18,9 @@
 typedef struct s_stack
 {
 	int		*content;
-	int		capacity;
-	char	id;
 	int		top;
 	int		pivot;
+	int		capacity;
 }			t_stack;
 
 typedef struct s_package

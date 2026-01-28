@@ -56,7 +56,7 @@ static int	feed_package(t_package *package, int arg_count, char **arg_list)
 	return (1);
 }
 
-static t_stack	*new_stack(t_package *package, char id)
+static t_stack	*new_stack(t_package *package)
 {
 	t_stack	*stack;
 
@@ -67,6 +67,7 @@ static t_stack	*new_stack(t_package *package, char id)
 	{
 		stack->content = package->data;
 		stack->top = package->size - 2;
+		stack->capacity = package->size;
 		package->data = (int *)0;
 	}
 	else
@@ -76,12 +77,10 @@ static t_stack	*new_stack(t_package *package, char id)
 			return ((t_stack *)0);
 		stack->top = -1;
 	}
-	stack->capacity = package->size - 1;
-	stack->id = id;
 	return (stack);
 }
 
-static void	set_fields(t_package *package, int size)
+static void	set_fields(t_package *package, int size) // CORRECT
 {
 	package->data = (int *)0;
 	package->a = (t_stack *)0;
@@ -101,10 +100,10 @@ t_package	*new_package(int arg_count, char **arg_list)
 		return (clean(package), (t_package *)0);
 	if (find_duplicate(package))
 		return (clean(package), (t_package *)0);
-	package->a = new_stack(package, 'a');
+	package->a = new_stack(package);
 	if (!package->a)
 		return (clean(package), (t_package *)0);
-	package->b = new_stack(package, 'b');
+	package->b = new_stack(package);
 	if (!package->b)
 		return (clean(package), (t_package *)0);
 	return (package);

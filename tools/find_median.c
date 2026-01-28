@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+// /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   find_median.c                                      :+:      :+:    :+:   */
@@ -60,7 +60,7 @@ void	find_median(t_stack *stack)
 
 	list = copy(stack->content, stack->top + 1);
 	if (!list)
-		return ; 
+		return ;
 	bubble_sort(list, (stack->top + 1));
 	stack->pivot = list[(stack->top + 1) / 2];
 	free(list);

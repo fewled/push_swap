@@ -31,4 +31,3 @@ void    clean(t_package *package)
 	if (package)
 		free(package);
 }
-
