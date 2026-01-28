@@ -26,6 +26,7 @@ int			ft_isint(long long n);
 int			ft_isnum(char *str);
 long long	ft_atoll(char *str);
 int			ft_atoi(char *str);
+int			ft_count_words(char *str);
 char		**ft_split(char *str);
 
 #endif

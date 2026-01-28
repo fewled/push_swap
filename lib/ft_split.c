@@ -12,29 +12,6 @@
 
 #include "lib.h"
 
-static int      count_words(char *str)
-{
-        int     in_word;
-        int     count;
-        int     index;
-
-        in_word = 0;
-        count = 0;
-        index = 0;
-        while (str[index])
-        {
-                if (str[index] != ' ' && !in_word)
-                {
-                        count++;
-                        in_word++;
-                }
-                if (str[index] == ' ' && in_word)
-                        in_word--;
-                index++;
-        }
-        return (count);
-}
-
 static char	*extract_word(char *str, int *index)
 {
 	int		start;
@@ -63,7 +40,7 @@ char	**ft_split(char *str)
 	int		index;
 	int		str_index;
 
-	word_count = count_words(str);
+	word_count = ft_count_words(str);
 	list = malloc(sizeof(char *) * (word_count + 1));
 	if (!list)
 		return ((char **)0);
