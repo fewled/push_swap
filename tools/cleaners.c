@@ -6,13 +6,13 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:44:20 by vpolard           #+#    #+#             */
-/*   Updated: 2026/01/28 19:35:51 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:45:00 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tools.h"
 
-void    clean_stack(t_stack *stack)
+static void    clean_stack(t_stack *stack)
 {
 	if (stack->content)
 		free(stack->content);
@@ -22,8 +22,6 @@ void    clean_stack(t_stack *stack)
 
 void    clean(t_package *package)
 {
-	if (package->data)
-		free(package->data);
 	if (package->a)
 		clean_stack(package->a);
 	if (package->b)

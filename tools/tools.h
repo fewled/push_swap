@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:05:01 by vpolard           #+#    #+#             */
-/*   Updated: 2026/01/28 19:06:56 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/01/29 17:27:25 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ typedef struct s_stack
 
 typedef struct s_package
 {
+	char	**data;
+	int		size;
 	t_stack	*a;
 	t_stack	*b;
-	int		*data;
-	int		size;
 }			t_package;
 
 
