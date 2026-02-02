@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:05:01 by vpolard           #+#    #+#             */
-/*   Updated: 2026/01/29 17:27:25 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:36:40 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,4 @@ void		clean(t_package *package);
 void		clean_iter(char **list);
 
 #endif
+

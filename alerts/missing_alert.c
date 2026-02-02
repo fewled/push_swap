@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 18:41:37 by vpolard           #+#    #+#             */
-/*   Updated: 2026/01/28 18:46:18 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/02 16:39:33 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	missing_alert()
 {
-	ft_putstr("\n");
-	ft_putstr("------------------------------\n");
-	ft_putstr("[x] No argument were provided.\n");
-	ft_putstr("------------------------------\n");
-	ft_putstr("\n");
+	ft_puterr("\n");
+	ft_puterr("------------------------------\n");
+	ft_puterr("[x] No argument were provided.\n");
+	ft_puterr("------------------------------\n");
+	ft_puterr("\n");
 }
