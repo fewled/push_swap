@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:02:31 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/02 16:00:33 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/03 18:22:49 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	parse_content(t_package *package)
 	while (index >= 0)
 	{
 		if (!ft_isnum(package->data[index])
-			|| ft_isint(ft_atoll(package->data[index])))
+			|| !ft_isint(ft_atoll(package->data[index])))
 			return (0);
 		package->a->content[index] = ft_atoi(package->data[index]);
 		index--;
@@ -37,29 +37,21 @@ static int	parse_content(t_package *package)
 		}
 		index++;
 	}
-	return (1);
+	return ((package->data = (char **)0), 1);
 }
 
-static int	build_from_string(t_package *package)
-{
-	package->size = ft_count_words(package->data[0]);
-	if (!(package->a = malloc(sizeof(t_stack)))
-		|| !(package->b malloc(sizeof(t_stack)))
-		|| !(package->a->content = malloc(sizeof(int) * package->size))
-		|| !(package->b->content = malloc(sizeof(int) * package->size)))
-		return (0);
-	if ((package->data = ft_split(package->data)))
-		return (parse_content(package));
-}
-
-static int	build_from_list(t_package *package)
+static int	build_stacks(t_package *package)
 {
 	if (!(package->a = malloc(sizeof(t_stack)))
 		|| !(package->b = malloc(sizeof(t_stack)))
 		|| !(package->a->content = malloc(sizeof(int) * package->size))
 		|| !(package->b->content = malloc(sizeof(int) * package->size)))
 		return (0);
-	return (parse_content(package));
+	package->a->capacity = package->size;
+	package->a->top = package->size - 1;
+	package->b->capacity = package->size;
+	package->b->top = -1;
+	return (1);
 }
 
 t_package	*new_package(int arg_count, char **arg_list)
@@ -68,15 +60,22 @@ t_package	*new_package(int arg_count, char **arg_list)
 
 	if (!(package = malloc(sizeof(t_package))))
 		return ((t_package *)0);
-	package->size = arg_count - 1;
-	package->data = &(arg_list + 1);
+	package->data = (char **)0;
 	package->a = (t_stack *)0;
 	package->b = (t_stack *)0;
-	if (ft_count_words(package->data[0]) > 2)
-		if (!build_from_string(package))
-			return (clean(package), (t_package *)0);
-	if (package->size > 2)
-		if (!build_from_list(package))
-			return (clean(package), (t_package *)0);
+	if (arg_count == 2)
+	{
+		package->size = ft_count_words(arg_list[1]);
+		if (!(package->data = ft_split(arg_list[1])))
+			return (0);
+	}
+	else
+	{
+		package->size = arg_count - 1;
+		package->data = arg_list + 1;
+	}
+	if (!(build_stacks(package))
+		|| !(parse_content(package)))
+		return (clean(package), (t_package *)0);
 	return (package);
 }
