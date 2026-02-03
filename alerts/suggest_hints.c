@@ -14,12 +14,12 @@
 
 void	suggest_hints()
 {
-	ft_puterr("\n");
-	ft_puterr("----------------------------------\n");
-	ft_puterr("[x] Error while parsing arguments.\n");
-	ft_puterr("----------------------------------\n");
-	ft_puterr("[i] At least 2 numbers are needed.\n");
-	ft_puterr("[i] Each one should fit in an int.\n");
-	ft_puterr("[i] No duplicate argument allowed.\n");
-	ft_puterr("\n");
+	ft_puterr("");
+	ft_puterr("----------------------------------");
+	ft_puterr("[x] Error while parsing arguments.");
+	ft_puterr("----------------------------------");
+	ft_puterr("[i] At least 2 numbers are needed.");
+	ft_puterr("[i] Each one should fit in an int.");
+	ft_puterr("[i] No duplicate argument allowed.");
+	ft_puterr("");
 }

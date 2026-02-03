@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "tools.h"
+#include <stdio.h>
 
 static int	parse_content(t_package *package)
 {
@@ -26,15 +27,13 @@ static int	parse_content(t_package *package)
 		package->a->content[index] = ft_atoi(package->data[index]);
 		index--;
 	}
+	index = 0;
 	while (index < package->size - 1)
 	{
 		ping = index + 1;
-		while (ping < package->size - 1)
-		{
-			if (package->a->content[ping] == package->a->content[index])
+		while (ping < package->size)
+			if (package->a->content[ping++] == package->a->content[index])
 				return (0);
-			ping++;
-		}
 		index++;
 	}
 	return ((package->data = (char **)0), 1);

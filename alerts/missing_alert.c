@@ -14,9 +14,9 @@
 
 void	missing_alert()
 {
-	ft_puterr("\n");
-	ft_puterr("------------------------------\n");
-	ft_puterr("[x] No argument were provided.\n");
-	ft_puterr("------------------------------\n");
-	ft_puterr("\n");
+	ft_puterr("");
+	ft_puterr("------------------------------");
+	ft_puterr("[x] No argument were provided.");
+	ft_puterr("------------------------------");
+	ft_puterr("");
 }
