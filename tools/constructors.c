@@ -6,12 +6,11 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:02:31 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/03 18:22:49 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/04 03:50:26 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tools.h"
-#include <stdio.h>
 
 static int	parse_content(t_package *package)
 {

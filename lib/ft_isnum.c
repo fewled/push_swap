@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 19:07:41 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/27 18:58:59 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/04 04:06:26 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ int	ft_isnum(char *str)
 	int	index;
 
 	index = 0;
-	if (str[index] == '-' && str[index] == '+'
-		&& ft_strlen(str) > 1)
+	if ((str[index] == '-' || str[index] == '+') && ft_strlen(str) > 1)
 		index++;
 	while (str[index])
 		if (!ft_isdigit(str[index++]))
