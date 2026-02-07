@@ -29,16 +29,3 @@ void    clean(t_package *package)
 	if (package)
 		free(package);
 }
-
-void	clean_iter(char **list)
-{
-	int	index;
-
-	if (list)
-	{
-		index = 0;
-		while (list[index])
-			free(list[index++]);
-		free(list);
-	}
-}

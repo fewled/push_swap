@@ -33,9 +33,6 @@ typedef struct s_package
 
 
 t_package	*new_package(int arg_count, char **arg_list);
-void		find_median(t_stack *stack);
 void		clean(t_package *package);
-void		clean_iter(char **list);
 
 #endif
-
