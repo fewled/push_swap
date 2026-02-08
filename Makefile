@@ -17,17 +17,18 @@ LIB			= lib/ft_atoi.c \
 
 TOOLS		= tools/cleaners.c \
 			  tools/constructors.c \
-			  tools/find_median.c \
 
 OPERATIONS	= operations/push.c \
 			  operations/swap.c \
 			  operations/rotate.c \
 			  operations/rev_rotate.c
 
+ALGO		= algo/sort.c \
+
 ALERTS      = alerts/missing_alert.c \
 			  alerts/suggest_hints.c
 
-SRCS		= main.c $(LIB) $(TOOLS) $(OPERATIONS) $(ALERTS)
+SRCS		= main.c $(LIB) $(TOOLS) $(OPERATIONS) $(ALGO) $(ALERTS)
 OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)

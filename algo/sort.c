@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.h                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/07 19:57:58 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/07 20:00:57 by vpolard          ###   ########.fr       */
+/*   Created: 2026/02/08 17:52:48 by vpolard           #+#    #+#             */
+/*   Updated: 2026/02/08 17:54:12 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORT_H
-# define SORT_H
+#include "algo.h"
 
-# include "../tools/tools.h"
-
-void	sort(t_package *package);
-
-#endif
+void	sort(t_package *package)
+{
+	(void)package;
+	ft_putstr("[i] Calling sort !\n");
+}
