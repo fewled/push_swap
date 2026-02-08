@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 18:57:56 by vpolard           #+#    #+#             */
-/*   Updated: 2025/12/30 07:35:10 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/08 18:39:52 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ static void    swap(t_stack *stack)
         content[top - 1] = temp;
 }
 
-void	sa(t_stack *a)
+void	sa(t_package *package)
 {
-	swap(a);
+	swap(package->a);
 	ft_putstr("sa\n");
 }
 
-void	sb(t_stack *b)
+void	sb(t_package *package)
 {
-	swap(b);
+	swap(package->b);
 	ft_putstr("sb\n");
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_package *package)
 {
-	swap(a);
-	swap(b);
+	swap(package->a);
+	swap(package->b);
 	ft_putstr("ss\n");
 }

@@ -6,20 +6,20 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 18:58:06 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/03 17:32:07 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/08 18:36:06 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-static void    rotate(t_stack *stack)
+static void    rotate(t_stack *stack, int size)
 {
         int     *rotated;
         int     index;
 
         if (stack->top < 1)
                 return ;
-        rotated = malloc(sizeof(int) * stack->capacity);
+        rotated = malloc(sizeof(int) * size);
         if (!rotated)
                 return (ft_puterr("[x] Failed allocation at rotate"));
         index = 0;
@@ -33,21 +33,21 @@ static void    rotate(t_stack *stack)
         stack->content = rotated;
 }
 
-void	ra(t_stack *a)
+void	ra(t_package *package)
 {
-	rotate(a);
+	rotate(package->a, package->size);
 	ft_putstr("ra\n");
 }
 
-void	rb(t_stack *b)
+void	rb(t_package *package)
 {
-	rotate(b);
+	rotate(package->b, package->size);
 	ft_putstr("rb\n");
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_package *package)
 {
-	rotate(a);
-	rotate(b);
+	rotate(package->a, package->size);
+	rotate(package->b, package->size);
 	ft_putstr("rrr\n");
 }

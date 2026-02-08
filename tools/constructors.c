@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:02:31 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/08 18:24:28 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/08 18:30:20 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ static int	build_stacks(t_package *package)
 		|| !(package->a->content = malloc(sizeof(int) * package->size))
 		|| !(package->b->content = malloc(sizeof(int) * package->size)))
 		return (0);
-	package->a->capacity = package->size;
 	package->a->top = package->size - 1;
-	package->b->capacity = package->size;
 	package->b->top = -1;
 	return (1);
 }
