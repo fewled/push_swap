@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:02:31 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/04 04:19:24 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/08 18:24:28 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	parse_content(t_package *package)
 				return (0);
 		index++;
 	}
-	return ((package->data = (char **)0), 1);
+	return (1);
 }
 
 static int	build_stacks(t_package *package)
@@ -74,6 +74,6 @@ t_package	*new_package(int arg_count, char **arg_list)
 	}
 	if (!(build_stacks(package))
 		|| !(parse_content(package)))
-		return (clean(package), (t_package *)0);
+		return (clean(package, arg_count), (t_package *)0);
 	return (package);
 }

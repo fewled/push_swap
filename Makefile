@@ -17,6 +17,7 @@ LIB			= lib/ft_atoi.c \
 
 TOOLS		= tools/cleaners.c \
 			  tools/constructors.c \
+			  tools/suggest_hints.c \
 
 OPERATIONS	= operations/push.c \
 			  operations/swap.c \
@@ -25,10 +26,7 @@ OPERATIONS	= operations/push.c \
 
 ALGO		= algo/sort.c \
 
-ALERTS      = alerts/missing_alert.c \
-			  alerts/suggest_hints.c
-
-SRCS		= main.c $(LIB) $(TOOLS) $(OPERATIONS) $(ALGO) $(ALERTS)
+SRCS		= main.c $(LIB) $(TOOLS) $(OPERATIONS) $(ALGO)
 OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)

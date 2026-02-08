@@ -6,12 +6,12 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 17:29:48 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/04 04:18:06 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/08 18:24:43 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tools/tools.h"
-#include "alerts/alerts.h"
+#include "algo/algo.h"
 
 int	main(int arg_count, char **arg_list)
 {
@@ -22,6 +22,6 @@ int	main(int arg_count, char **arg_list)
 	package = new_package(arg_count, arg_list);
 	if (!package)
 		return (suggest_hints(), 1);
-	// sort(package);
-	clean(package);
+	sort(package);
+	clean(package, arg_count);
 }
