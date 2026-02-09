@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo.h                                             :+:      :+:    :+:   */
+/*   arrange.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/07 19:57:58 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/09 20:19:45 by vpolard          ###   ########.fr       */
+/*   Created: 2026/02/09 17:33:21 by vpolard           #+#    #+#             */
+/*   Updated: 2026/02/09 17:33:43 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ALGO_H
-# define ALGO_H
+#include "algo.h"
 
-# include "../tools/tools.h"
-# include "../operations/operations.h"
-
-void	sort(t_package *package);		// Main sorting function
-void	arrange(t_stack *stack);		// Sort the 3 remaining elements in a
-void	find_cost(t_package *package);	// Documentation inside source file
-void	find_best(t_package *package);	// Documentation inside source file
-
-#endif
+void	arrange(t_stack *stack)
+{
+	// Content...
+}

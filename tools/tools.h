@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:05:01 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/08 18:29:52 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/09 20:20:19 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 # define TOOLS_H
 
 # include "../lib/lib.h"
-#include <stdio.h> // TO REMOVE
+#include <stdio.h>			// TO REMOVE
 
-typedef struct s_stack
+typedef struct s_stack		// Check for unsused fields at some point
 {
 	int		*content;
+	int		pin;
 	int		top;
+	int		best;
+	int		near_top;
 }			t_stack;
 
 typedef struct s_package
@@ -28,6 +31,7 @@ typedef struct s_package
 	int		size;
 	t_stack	*a;
 	t_stack	*b;
+	// int	best ?
 }			t_package;
 
 
