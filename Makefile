@@ -25,6 +25,11 @@ OPERATIONS	= operations/push.c \
 			  operations/rev_rotate.c
 
 ALGO		= algo/sort.c \
+			  # algo/unload.c \
+			  # algo/find_cost.c \
+			  # algo/arrange.c \
+			  # algo/refill.c \
+			  # algo/adjust.c \ 
 
 SRCS		= main.c $(LIB) $(TOOLS) $(OPERATIONS) $(ALGO)
 OBJS		= $(SRCS:.c=.o)

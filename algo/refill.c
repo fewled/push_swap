@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arrange.c                                          :+:      :+:    :+:   */
+/*   refill.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/09 17:33:21 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/10 10:27:00 by vpolard          ###   ########.fr       */
+/*   Created: 2026/02/10 09:50:23 by vpolard           #+#    #+#             */
+/*   Updated: 2026/02/10 10:28:07 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
 
-void	arrange(t_stack *stack);
-// (i) Sorting function for a three-element stack
+void	refill(t_package *package);
+// (i) Bring every element from 'b' to 'a'
 // ...

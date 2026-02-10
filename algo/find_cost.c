@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 17:46:45 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/09 19:05:20 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/10 09:46:12 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 // is involved with the new lowest cost
 
 #include "algo.h"
+
+// Both stacks pins must be already set in order to calculate the cost
 
 static void	shared_direction(t_package *package);
 // Handles cost calculation when both the element in 'a'
@@ -56,7 +58,7 @@ static void smart_direction(t_package *package);
 // 	to move the element of the biggest stack can be used to place the element
 // 	of the smallest stack on the go
 
-static void	different_direction(t_package *package);
+static void	opposite_direction(t_package *package);
 // Handles cost calculation when the element in 'a' and the
 // closest element (numericaly-wise) in 'b' are in different
 // posistions from the middle of their respective stack, and where 
@@ -65,7 +67,7 @@ static void	different_direction(t_package *package);
 
 void	find_cost(t_package *package)
 {
-	// 1. Same direction (no trick) // shared_direction()
-	// 2. Different direction (trick) // smart_direction()
-	// 3. Different direction (no trick) // different_direction()
+	if (package->a->direction == package->b->direction)
+		return (shared_direction(package));
+	return (smart_direction(package), opposite_direction(package));
 }
