@@ -12,6 +12,8 @@ LIB			= lib/ft_atoi.c \
 			  lib/ft_putstr.c \
 			  lib/ft_strlen.c \
 			  lib/ft_putnbr.c \
+			  lib/ft_abs.c \
+			  lib/ft_biggest.c \
 			  lib/ft_count_words.c \
 			  lib/ft_split.c
 

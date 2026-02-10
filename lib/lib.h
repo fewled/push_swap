@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:05:37 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/09 17:16:38 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/10 13:46:55 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int			ft_isnum(char *str);
 long long	ft_atoll(char *str);
 int			ft_atoi(char *str);
 int			ft_abs(int n);
+int			ft_biggest(int a, int b);
 int			ft_count_words(char *str);
 char		**ft_split(char *str);
 
