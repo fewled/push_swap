@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:44:20 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/08 18:25:13 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/12 14:43:15 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void    clean(t_package *package, int arg_count)
 			free(package->data[index++]);
 		free(package->data);
 	}
+	if (package->move)
+		free(package->move);
 	if (package)
 		free(package);
 }

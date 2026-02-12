@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 18:02:31 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/08 18:30:20 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/12 14:31:23 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ static int	parse_content(t_package *package)
 	return (1);
 }
 
-static int	build_stacks(t_package *package)
+static int	build_structs(t_package *package)
 {
 	if (!(package->a = malloc(sizeof(t_stack)))
 		|| !(package->b = malloc(sizeof(t_stack)))
 		|| !(package->a->content = malloc(sizeof(int) * package->size))
-		|| !(package->b->content = malloc(sizeof(int) * package->size)))
+		|| !(package->b->content = malloc(sizeof(int) * package->size))
+		|| !(package->move = malloc(sizeof(t_move))))
 		return (0);
 	package->a->top = package->size - 1;
 	package->b->top = -1;
@@ -70,7 +71,7 @@ t_package	*new_package(int arg_count, char **arg_list)
 		package->size = arg_count - 1;
 		package->data = arg_list + 1;
 	}
-	if (!(build_stacks(package))
+	if (!(build_structs(package))
 		|| !(parse_content(package)))
 		return (clean(package, arg_count), (t_package *)0);
 	return (package);

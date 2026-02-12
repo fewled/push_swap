@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/09 17:33:21 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/10 10:27:00 by vpolard          ###   ########.fr       */
+/*   Created: 2026/02/12 14:35:07 by vpolard           #+#    #+#             */
+/*   Updated: 2026/02/12 14:36:03 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
 
-void	arrange(t_stack *stack);
-// (i) Sorting function for a three-element stack
-// ...
+void	arrange(t_package *package);
+// (i) Sort the three remaining elements in 'a'
