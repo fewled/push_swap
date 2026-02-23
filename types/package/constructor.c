@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constructors.c                                     :+:      :+:    :+:   */
+/*   constructor.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/27 18:02:31 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/12 14:31:23 by vpolard          ###   ########.fr       */
+/*   Created: 2026/02/23 17:30:44 by vpolard           #+#    #+#             */
+/*   Updated: 2026/02/23 17:30:47 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools.h"
+#include "../types.h"
 
 static int	parse_content(t_package *package)
 {
@@ -40,13 +40,11 @@ static int	parse_content(t_package *package)
 
 static int	build_structs(t_package *package)
 {
-	if (!(package->a = malloc(sizeof(t_stack)))
-		|| !(package->b = malloc(sizeof(t_stack)))
-		|| !(package->a->content = malloc(sizeof(int) * package->size))
-		|| !(package->b->content = malloc(sizeof(int) * package->size))
-		|| !(package->move = malloc(sizeof(t_move))))
+	if (!(package->a = new_stack(package->size))
+		|| !(package->b = new_stack(package->size))
+		|| !(package->current_move = new_move())
+		|| !(package->best_move = new_move()))
 		return (0);
-	package->a->top = package->size - 1;
 	package->b->top = -1;
 	return (1);
 }
@@ -57,9 +55,6 @@ t_package	*new_package(int arg_count, char **arg_list)
 
 	if (!(package = malloc(sizeof(t_package))))
 		return ((t_package *)0);
-	package->data = (char **)0;
-	package->a = (t_stack *)0;
-	package->b = (t_stack *)0;
 	if (arg_count == 2)
 	{
 		package->size = ft_count_words(arg_list[1]);
@@ -73,6 +68,6 @@ t_package	*new_package(int arg_count, char **arg_list)
 	}
 	if (!(build_structs(package))
 		|| !(parse_content(package)))
-		return (clean(package, arg_count), (t_package *)0);
+		return (destroy_package(package, arg_count), (t_package *)0);
 	return (package);
 }

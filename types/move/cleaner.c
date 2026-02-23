@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   suggest_hints.c                                    :+:      :+:    :+:   */
+/*   cleaner.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/28 18:35:47 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/08 17:56:16 by vpolard          ###   ########.fr       */
+/*   Created: 2026/02/23 18:15:19 by vpolard           #+#    #+#             */
+/*   Updated: 2026/02/23 18:15:20 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/lib.h"
+#include "../types.h"
 
-void	suggest_hints()
+void	clean_move(t_move *move)
 {
-	ft_puterr("");
-	ft_puterr("----------------------------------");
-	ft_puterr("[x] Error while parsing arguments.");
-	ft_puterr("----------------------------------");
-	ft_puterr("[i] At least 2 numbers are needed.");
-	ft_puterr("[i] Each one should fit in an int.");
-	ft_puterr("[i] No duplicate argument allowed.");
-	ft_puterr("");
+	move->adir = 0;
+	move->bdir = 0;
+	move->apin = 0;
+	move->bpin = 0;
+	move->cost = 0;
 }

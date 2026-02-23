@@ -1,42 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cleaners.c                                         :+:      :+:    :+:   */
+/*   destructor.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 15:44:20 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/12 14:43:15 by vpolard          ###   ########.fr       */
+/*   Created: 2026/02/23 17:40:16 by vpolard           #+#    #+#             */
+/*   Updated: 2026/02/23 17:40:16 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tools.h"
+#include "../types.h"
 
-static void    clean_stack(t_stack *stack)
+void	destroy_stack(t_stack *stack)
 {
 	if (stack->content)
 		free(stack->content);
-	if (stack)
-		free(stack);
-}
-
-void    clean(t_package *package, int arg_count)
-{
-	int	index;
-
-	if (package->a)
-		clean_stack(package->a);
-	if (package->b)
-		clean_stack(package->b);
-	if (arg_count == 2)
-	{
-		index = 0;
-		while (package->data[index])
-			free(package->data[index++]);
-		free(package->data);
-	}
-	if (package->move)
-		free(package->move);
-	if (package)
-		free(package);
+	free(stack);
 }

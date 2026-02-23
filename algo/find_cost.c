@@ -39,9 +39,9 @@ static void smart_direction(t_package *package);
 
 // a   b    =>	The element from 'a' that needs to be pushed is '1'
 // -   -      	The nearest numerical element in 'b' is 2
-// 8   12     	'1' is closer to the bottom 
-// 4   2	  	'2' is closer to the top			-> Not same direction  
-// 10  20      
+// 8   12     	'1' is closer to the bottom
+// 4   2	  	'2' is closer to the top			-> Not same direction
+// 10  20
 // 13  17     	'1' can be placed on the top using 5 moves (bottom->top)
 // 15  13		'2' can be placed on the bottom using 2 moves (top->bottom)
 // 16			(5 + 2) + 1 = 8
@@ -61,8 +61,8 @@ static void smart_direction(t_package *package);
 static void	opposite_direction(t_package *package);
 // Handles cost calculation when the element in 'a' and the
 // closest element (numericaly-wise) in 'b' are in different
-// posistions from the middle of their respective stack, and where 
-// the number of shift that needs to be made from one stack is 
+// posistions from the middle of their respective stack, and where
+// the number of shift that needs to be made from one stack is
 // smaller than the size of the other stack
 
 void	find_cost(t_package *package)

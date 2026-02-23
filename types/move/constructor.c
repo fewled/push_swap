@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   suggest_hints.c                                    :+:      :+:    :+:   */
+/*   constructor.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/28 18:35:47 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/08 17:56:16 by vpolard          ###   ########.fr       */
+/*   Created: 2026/02/23 17:44:15 by vpolard           #+#    #+#             */
+/*   Updated: 2026/02/23 17:44:16 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/lib.h"
+#include "../types.h"
 
-void	suggest_hints()
+t_move	*new_move()
 {
-	ft_puterr("");
-	ft_puterr("----------------------------------");
-	ft_puterr("[x] Error while parsing arguments.");
-	ft_puterr("----------------------------------");
-	ft_puterr("[i] At least 2 numbers are needed.");
-	ft_puterr("[i] Each one should fit in an int.");
-	ft_puterr("[i] No duplicate argument allowed.");
-	ft_puterr("");
+	t_move	*new_move;
+
+	if (!(new_move = malloc(sizeof(t_move))))
+		return ((t_move *)0);
+	new_move->cost = 0;
+	new_move->apin = 0;
+	new_move->bpin = 0;
+	new_move->adir = 0;
+	new_move->bdir = 0;
+	return (new_move);
 }

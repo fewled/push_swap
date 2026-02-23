@@ -12,7 +12,7 @@
 
 #include "algo.h"
 
-void     adjust(t_package *package);
+void     adjust(t_package *package)
 // (i) Ensures that the package->a->content[package->a->top] is the smallest element in the stack
 // 1. Get the current index of the smallest element
 // 2. Get its direction (if its closer to the top or the bottom of the stack)

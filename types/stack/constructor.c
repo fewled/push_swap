@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   suggest_hints.c                                    :+:      :+:    :+:   */
+/*   constructor.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/28 18:35:47 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/08 17:56:16 by vpolard          ###   ########.fr       */
+/*   Created: 2026/02/23 17:32:26 by vpolard           #+#    #+#             */
+/*   Updated: 2026/02/23 17:32:27 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/lib.h"
+#include "../types.h"
 
-void	suggest_hints()
+t_stack	*new_stack(int size)
 {
-	ft_puterr("");
-	ft_puterr("----------------------------------");
-	ft_puterr("[x] Error while parsing arguments.");
-	ft_puterr("----------------------------------");
-	ft_puterr("[i] At least 2 numbers are needed.");
-	ft_puterr("[i] Each one should fit in an int.");
-	ft_puterr("[i] No duplicate argument allowed.");
-	ft_puterr("");
+	t_stack *new_stack;
+
+	if (!(new_stack = malloc(sizeof(t_stack)))
+		|| !(new_stack->content = malloc(sizeof(int) * size)))
+		return ((t_stack *)0);
+	new_stack->top = size - 1;
+	new_stack->direction = 0;
+	new_stack->pin = 0;
+	return (new_stack);
 }

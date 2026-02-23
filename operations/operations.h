@@ -13,7 +13,7 @@
 #ifndef OPERATIONS_H
 # define OPERATIONS_H
 
-# include "../tools/tools.h"
+# include "../types/types.h"
 
 void	sa(t_package *package);
 void	sb(t_package *package);

@@ -13,4 +13,4 @@
 #include "algo.h"
 
 void	arrange(t_package *package);
-// (i) Sort the three remaining elements in 'a'
+// (i) Sort the three remaining elements of a stack

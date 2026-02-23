@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 17:52:48 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/12 14:35:28 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/21 23:39:32 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ void	sort(t_package *package)
 // 4. Bring back elements in 'a'
 // 5. Adjust the stack content to have the smallest element as the first one
 {
-	pb(package);
-	pb(package);
-	while (package->a->top > 3)
-		unload(package);
+	(void)package;
+	// pb(package);
+	// pb(package);
+	// while (package->a->top > 3)
+	// 	transfer(package);
 	// arrange(package);
-	while (package->b->top > 0)
+	// while (package->b->top > 0)
 		// refill(package);
-	// adjust(package);	
+	// adjust(package);
 }

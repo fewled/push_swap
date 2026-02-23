@@ -17,9 +17,15 @@ LIB			= lib/ft_atoi.c \
 			  lib/ft_count_words.c \
 			  lib/ft_split.c
 
-TOOLS		= tools/cleaners.c \
-			  tools/constructors.c \
-			  tools/suggest_hints.c \
+TYPES		= types/package/constructor.c \
+			  types/package/destructor.c \
+			  types/stack/constructor.c \
+			  types/stack/destructor.c \
+			  types/move/constructor.c \
+			  types/move/cleaner.c \
+			  types/move/destructor.c \
+
+TOOLS		= tools/suggest_hints.c \
 
 OPERATIONS	= operations/push.c \
 			  operations/swap.c \
@@ -31,9 +37,9 @@ ALGO		= algo/sort.c \
 			  # algo/find_cost.c \
 			  # algo/arrange.c \
 			  # algo/refill.c \
-			  # algo/adjust.c \ 
+			  # algo/adjust.c \
 
-SRCS		= main.c $(LIB) $(TOOLS) $(OPERATIONS) $(ALGO)
+SRCS		= main.c $(LIB) $(TYPES) $(TOOLS) $(OPERATIONS) $(ALGO)
 OBJS		= $(SRCS:.c=.o)
 
 all: $(NAME)

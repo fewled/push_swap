@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "types/types.h"
 #include "tools/tools.h"
 #include "algo/algo.h"
 
@@ -23,5 +24,5 @@ int	main(int arg_count, char **arg_list)
 	if (!package)
 		return (suggest_hints(), 1);
 	sort(package);
-	clean(package, arg_count);
+	destroy_package(package, arg_count);
 }
