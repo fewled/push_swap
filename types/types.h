@@ -21,9 +21,11 @@ typedef struct	s_move
 	int	atop;				// Top of stack a
 	int	apin;				// Index of the best element to move in 'a'
 	int	adir;				// Direction of the best element to move in 'a'
+	int	acost;				// Cost to move the a pin element in place
 	int	btop;				// Top of stack b
 	int	bpin;				// Index of the best element to move in 'b'
 	int	bdir;				// Direction of the best element to move in 'b'
+	int	bcost;				// Cost to move the b pin element in place
 	int	cost;				// Number of operation required to perform the move
 }		t_move;
 

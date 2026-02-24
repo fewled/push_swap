@@ -20,5 +20,7 @@ void	clean_move(t_move *move)
 	move->bpin = 0;
 	move->atop = 0;
 	move->btop = 0;
+	move->acost = 0;
+	move->bcost = 0;
 	move->cost = 0;
 }

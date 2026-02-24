@@ -45,34 +45,45 @@ static void	get_directions(t_package *package)
 	package->current_move->btop = package->b->top;
 }
 
+void	get_stacks_cost(t_move *move)
+{
+	if (move->adir)
+		move->acost = move->atop - move->apin;
+	else
+		move->acost = move->apin + 1;
+	if (move->bdir)
+		move->bcost = move->btop - move->bpin;
+	else
+		move->bcost = move->bpin + 1;
+}
+
 /*
 
 void	get_cost(t_move *move)
 {
-	int		acost;
-	int		bcost;
-
-	// Find both placing cost
-	if (move->adir)
-		acost = move->atop - move->apin;
-	if (!move->adir)
-		acost = move->apin + 1;
-	if (move->bdir)
-		bcost = move->btop - move->bpin;
-	if (!move->bdir)
-		bcost = move->bpin + 1;
 	// Check if it could bring the other along
 	if (move->adir == move->bdir)
-		move->cost = ft_biggest(acost, bcost) + 1;
+		move->cost = ft_biggest(move->acost, move->bcost);
 	else
 	{
-		if // does the biggest can bring the smallest
+		if ()// does the biggest can bring the smallest
 		{
-
+			if (move->acost > move->bcost)
+			{
+				if (move->acost < (move->btop - move->bpin)
+					|| move->acost < (move->bpin + 1))
+					move->cost = move->acost;
+			}
+			if (move->acost < move->cost)
+			{
+				if (move->bcost < (move->atop - move->apin)
+					|| move->bcost < (move->apin + 1))
+					move->cost = move->bcost;
+			}
 		}
 		else // different direcitons
 		{
-			move->cost = acost + bcost + 1;
+			move->cost = move->acost + move->bcost;
 		}
 	}
 }
@@ -92,6 +103,7 @@ void	transfer(t_package *package)
 		get_closest(package);
 		get_directions(package);
 		// Get cost estimations
+		get_stacks_cost(package->current_move);
 		// get_cost(package->current_move);
 		// Clean current move
 		if (package->best_move->cost > package->current_move->cost
