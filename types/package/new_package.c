@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constructor.c                                      :+:      :+:    :+:   */
+/*   new_package.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -68,6 +68,6 @@ t_package	*new_package(int arg_count, char **arg_list)
 	}
 	if (!(build_structs(package))
 		|| !(parse_content(package)))
-		return (destroy_package(package, arg_count), (t_package *)0);
+		return (delete_package(package, arg_count), (t_package *)0);
 	return (package);
 }

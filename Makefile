@@ -17,13 +17,13 @@ LIB			= lib/ft_atoi.c \
 			  lib/ft_count_words.c \
 			  lib/ft_split.c
 
-TYPES		= types/package/constructor.c \
-			  types/package/destructor.c \
-			  types/stack/constructor.c \
-			  types/stack/destructor.c \
-			  types/move/constructor.c \
-			  types/move/cleaner.c \
-			  types/move/destructor.c \
+TYPES		= types/package/new_package.c \
+			  types/package/delete_package.c \
+			  types/stack/new_stack.c \
+			  types/stack/delete_stack.c \
+			  types/move/new_move.c \
+			  types/move/clean_move.c \
+			  types/move/delete_move.c \
 
 TOOLS		= tools/suggest_hints.c \
 

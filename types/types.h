@@ -18,8 +18,10 @@
 
 typedef struct	s_move
 {
+	int	atop;				// Top of stack a
 	int	apin;				// Index of the best element to move in 'a'
 	int	adir;				// Direction of the best element to move in 'a'
+	int	btop;				// Top of stack b
 	int	bpin;				// Index of the best element to move in 'b'
 	int	bdir;				// Direction of the best element to move in 'b'
 	int	cost;				// Number of operation required to perform the move
@@ -45,14 +47,15 @@ typedef struct	s_package
 
 // ------------------------------------------------------------- PACKAGE
 t_package	*new_package(int arg_count, char **arg_list);
-void		destroy_package(t_package *package, int arg_count);
+void		update_best(t_package *package);
+void		delete_package(t_package *package, int arg_count);
 // ------------------------------------------------------------- STACK
 t_stack		*new_stack(int size);
-void		destroy_stack(t_stack *stack);
+void		delete_stack(t_stack *stack);
 // ------------------------------------------------------------- MOVE
 t_move		*new_move();
 void		clean_move(t_move *move);
-void		destroy_move(t_move *move);
+void		delete_move(t_move *move);
 
 
 #endif

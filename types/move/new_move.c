@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   constructor.c                                      :+:      :+:    :+:   */
+/*   new_move.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -19,6 +19,8 @@ t_move	*new_move()
 	if (!(new_move = malloc(sizeof(t_move))))
 		return ((t_move *)0);
 	new_move->cost = 0;
+	new_move->atop = 0;
+	new_move->btop = 0;
 	new_move->apin = 0;
 	new_move->bpin = 0;
 	new_move->adir = 0;
