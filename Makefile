@@ -38,7 +38,8 @@ TRANSFER	= 	src/algo/transfer/transfer.c \
 		  	src/algo/transfer/get_stacks_cost.c \
 		  	src/algo/transfer/get_compared_cost.c \
 		  	src/algo/transfer/adjust_cost.c \
-			src/algo/transfer/update_best.c
+			src/algo/transfer/update_best.c \
+			# src/algo/transfer/apply_best.c
 
 ALGO		= 	src/algo/sort.c \
 			$(TRANSFER)

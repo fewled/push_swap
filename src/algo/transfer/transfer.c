@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 17:49:47 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/26 12:23:20 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/26 15:00:13 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,18 @@ void	transfer(t_package *package)
 	count = package->a->top;
 	while (count-- >= 0)
 	{
-		package->current_move->apin = count;
-		// Get pins and directions
+		package->current->aval = package->a->content[package->a->pin];
+		package->current->apin = count;
 		get_closest(package);
 		get_directions(package);
-		// Get cost estimations
-		get_stacks_cost(package->current_move);
-		get_compared_cost(package->current_move);
+		get_stacks_cost(package->current);
+		get_compared_cost(package->current);
 		adjust_cost(package);	
-		// Clean current move
-		if (package->best_move->cost > package->current_move->cost
-			|| !package->best_move->cost)
+		if (package->best->cost > package->current->cost
+			|| !package->best->cost)
 			update_best(package);
-		clean_move(package->current_move);
+		clean_move(package->current);
 	}
-	// Apply best move
-	// apply_move(package->best_move);
-	clean_move(package->best_move);
+	// apply_best(package);
+	clean_move(package->best);
 }

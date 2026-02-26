@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 19:57:58 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/26 12:38:19 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/26 14:20:33 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	get_stacks_cost(t_move *move);
 void	get_compared_cost(t_move *move);
 void	adjust_cost(t_package *package);
 void	update_best(t_package *package);
+void	apply_best(t_package *package);
 
 void	arrange(t_stack *stack);		// Sort the 3 remaining elements in 'a'
 void	refill(t_package *package);		// Bring everyting back to 'a'

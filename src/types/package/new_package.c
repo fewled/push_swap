@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:30:44 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/23 17:30:47 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/26 14:58:12 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static int	build_structs(t_package *package)
 {
 	if (!(package->a = new_stack(package->size))
 		|| !(package->b = new_stack(package->size))
-		|| !(package->current_move = new_move())
-		|| !(package->best_move = new_move()))
+		|| !(package->current = new_move())
+		|| !(package->best = new_move()))
 		return (0);
 	package->b->top = -1;
 	return (1);

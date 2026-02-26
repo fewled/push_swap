@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:44:15 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/23 17:44:16 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/26 14:28:05 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ t_move	*new_move()
 	new_move->bpin = 0;
 	new_move->adir = 0;
 	new_move->bdir = 0;
+	new_move->aval = 0;
+	new_move->bval = 0;
 	return (new_move);
 }

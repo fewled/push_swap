@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 11:50:26 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/26 12:25:41 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/26 14:37:55 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void	get_closest(t_package *package)
 		}
 		package->b->pin--;
 	}
-	package->current_move->bpin = closest;
+	package->current->bval = package->b->content[closest];
+	package->current->bpin = closest;
 }
