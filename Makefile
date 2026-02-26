@@ -1,46 +1,55 @@
-NAME		= push_swap
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror -g
-INCLUDES	= -I.
+NAME		=	push_swap
+CC		=	cc
+CFLAGS		= 	-Wall -Wextra -Werror -g
+INCLUDES	= 	-I.
 
-LIB			= lib/ft_atoi.c \
-			  lib/ft_atoll.c \
-			  lib/ft_isdigit.c \
-			  lib/ft_isint.c \
-			  lib/ft_isnum.c \
-			  lib/ft_puterr.c \
-			  lib/ft_putstr.c \
-			  lib/ft_strlen.c \
-			  lib/ft_putnbr.c \
-			  lib/ft_abs.c \
-			  lib/ft_biggest.c \
-			  lib/ft_count_words.c \
-			  lib/ft_split.c
+LIB		=	src/lib/ft_atoi.c \
+		  	src/lib/ft_atoll.c \
+		  	src/lib/ft_isdigit.c \
+		  	src/lib/ft_isint.c \
+			src/lib/ft_isnum.c \
+			src/lib/ft_puterr.c \
+			src/lib/ft_putstr.c \
+			src/lib/ft_strlen.c \
+			src/lib/ft_putnbr.c \
+			src/lib/ft_abs.c \
+			src/lib/ft_biggest.c \
+			src/lib/ft_count_words.c \
+			src/lib/ft_split.c
 
-TYPES		= types/package/new_package.c \
-			  types/package/delete_package.c \
-			  types/stack/new_stack.c \
-			  types/stack/delete_stack.c \
-			  types/move/new_move.c \
-			  types/move/clean_move.c \
-			  types/move/delete_move.c \
+TYPES		=	src/types/package/new_package.c \
+		  	src/types/package/delete_package.c \
+		  	src/types/stack/new_stack.c \
+		  	src/types/stack/delete_stack.c \
+		  	src/types/move/new_move.c \
+			src/types/move/clean_move.c \
+			src/types/move/delete_move.c \
 
-TOOLS		= tools/suggest_hints.c \
+TOOLS		= 	src/tools/suggest_hints.c \
 
-OPERATIONS	= operations/push.c \
-			  operations/swap.c \
-			  operations/rotate.c \
-			  operations/rev_rotate.c
+OPERATIONS	= 	src/operations/push.c \
+			src/operations/swap.c \
+			src/operations/rotate.c \
+			src/operations/rev_rotate.c
 
-ALGO		= algo/sort.c \
-			  # algo/unload.c \
-			  # algo/find_cost.c \
-			  # algo/arrange.c \
-			  # algo/refill.c \
-			  # algo/adjust.c \
+TRANSFER	= 	src/algo/transfer/transfer.c \
+		  	src/algo/transfer/get_closest.c \
+		  	src/algo/transfer/get_directions.c \
+		  	src/algo/transfer/get_stacks_cost.c \
+		  	src/algo/transfer/get_compared_cost.c \
+		  	src/algo/transfer/adjust_cost.c \
+			src/algo/transfer/update_best.c
 
-SRCS		= main.c $(LIB) $(TYPES) $(TOOLS) $(OPERATIONS) $(ALGO)
-OBJS		= $(SRCS:.c=.o)
+ALGO		= 	src/algo/sort.c \
+			$(TRANSFER)
+			# algo/unload.c \
+		 	# algo/find_cost.c \
+			# algo/arrange.c \
+			# algo/refill.c \
+			# algo/adjust.c \
+
+SRCS		=	src/main.c $(LIB) $(TYPES) $(TOOLS) $(OPERATIONS) $(ALGO)
+OBJS		= 	$(SRCS:.c=.o)
 
 all: $(NAME)
 
