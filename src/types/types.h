@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:28:41 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/26 14:31:26 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/02/27 12:10:43 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define TYPES_H
 
 # include "../lib/lib.h"
-#include <stdio.h>			// [!] TO REMOVE
 
 typedef struct	s_move
 {

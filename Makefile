@@ -26,6 +26,7 @@ TYPES		=	src/types/package/new_package.c \
 			src/types/move/delete_move.c \
 
 TOOLS		= 	src/tools/suggest_hints.c \
+			src/tools/status.c
 
 OPERATIONS	= 	src/operations/push.c \
 			src/operations/swap.c \
