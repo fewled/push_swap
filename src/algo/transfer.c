@@ -12,15 +12,21 @@
 
 #include "algo.h"
 
-void	get_closest(t_package *package);
+void    get_closest(t_package *package);
+/*
 void    get_directions(t_package *package);
 void	get_individual_cost(t_package *package);
 void	get_compared_cost(t_package *package);
 void	is_current_best(t_package *package);
 void	apply_move(t_package *package);
+*/
 
 void    transfer(t_package *package)
 {
+    package->a->pin = package->a->top;
+    get_closest(package);
+    printf("[i] Closest : %d\n", package->current->bval);
+    /*
     while (package->a->top > 2)
     {
         package->a->pin = package->a->top;
@@ -35,4 +41,5 @@ void    transfer(t_package *package)
         }
         apply_move(package);
     }
+    */
 }

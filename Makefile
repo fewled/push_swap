@@ -34,7 +34,8 @@ OPERATIONS	= 	src/operations/push.c \
 				src/operations/rev_rotate.c
 
 ALGO		= 	src/algo/sort.c \
-				src/algo/inject.c
+				src/algo/inject.c \
+				src/algo/transfer.c
 
 SRCS		=	src/main.c $(LIB) $(TYPES) $(TOOLS) $(OPERATIONS) $(ALGO)
 OBJS		= 	$(SRCS:.c=.o)
