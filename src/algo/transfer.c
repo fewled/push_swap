@@ -90,10 +90,27 @@ void	get_compared_cost(t_package *package)
 	move->cost++;
 }
 
-/*
-void	is_current_best(t_package *package);
-void	apply_move(t_package *package);
-*/
+
+void	is_current_best(t_package *package)
+{
+	if (package->current->cost < package->best->cost
+		|| !package->best->cost)
+	{
+		package->best->acost = package->current->acost;
+		package->best->bcost = package->current->bcost;
+		package->best->cost = package->current->cost;
+		package->best->apin = package->current->apin;
+		package->best->bpin = package->current->bpin;
+		package->best->atop = package->current->atop;
+		package->best->btop = package->current->btop;
+		package->best->aval = package->current->aval;
+		package->best->bval = package->current->bval;
+		package->best->adir = package->current->adir;
+		package->best->bdir = package->current->bdir;
+	}
+}
+
+// void	apply_move(t_package *package);
 
 void    transfer(t_package *package)
 {
