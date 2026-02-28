@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   inject.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 18:12:13 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/27 11:37:23 by vpolard          ###   ########.fr       */
+/*   Created: 2026/02/28 09:27:18 by vpolard           #+#    #+#             */
+/*   Updated: 2026/02/28 09:27:19 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#include "algo.h"
 
-# include "../lib/lib.h"
-# include "../types/types.h"
-# include "../operations/operations.h"
-
-void	suggest_hints();
-void	status(t_package *package);
-
-#endif
+void    inject(t_package *package)
+{
+    if (package->a->top >= 3)
+        pb(package);
+    if (package->a->top >= 4)
+        pb(package);
+}
