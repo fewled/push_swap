@@ -40,7 +40,7 @@ typedef struct	s_stack
 
 typedef struct	s_package
 {
-	char	**data;
+	char    **data;
 	int	size;
 	t_move	*current;
 	t_move	*best;

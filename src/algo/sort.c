@@ -14,7 +14,7 @@
 
 void	sort(t_package *package)
 {
-	inject(package);
+    inject(package);
 	// transfer(package);
 	// arrange(package);
 	// refill(package);
