@@ -65,24 +65,51 @@ void	get_individual_cost(t_package *package)
 		package->current->bcost = package->current->bpin + 1;
 }
 
-void	get_compared_cost(t_package *package);
+void	get_compared_cost(t_package *package)
+{
+	t_move *move;
+
+	move = package->current;
+	if (move->adir == move->bdir)
+		move->cost = ft_biggest(move->acost, move->bcost);
+	else
+	{
+		if (move->acost > move->bcost)
+			if ((move->bdir && (move->acost > (move->btop - move->bpin)))
+				|| (!move->bdir && (move->acost > (move->bpin + 1))))
+				move->cost = move->acost;
+		if (move->acost < move->bcost)
+			if ((move->adir && (move->bcost > (move->atop - move->apin)))
+				|| (!move->adir && (move->bcost > (move->apin + 1))))
+				move->cost = move->bcost;
+	}
+	if (!move->cost && (move->acost || move->bcost))
+		move->cost = move->acost + move->bcost;
+	if (move->aval < move->bval)
+		move->cost++;
+	move->cost++;
+}
+
+/*
 void	is_current_best(t_package *package);
 void	apply_move(t_package *package);
+*/
 
 void    transfer(t_package *package)
 {
-    while (package->a->top > 2)
-    {
-        package->a->pin = package->a->top;
-        while (package->a->pin >= 0)
-        {
-        	get_closest(package);
-            get_directions(package);
-            get_individual_cost(package);
-            get_compared_cost(package);
-            is_current_best(package);
-            package->a->pin--;
-        }
-        apply_move(package);
-    }
+	(void)package;
+	// while (package->a->top > 2)
+	// {
+	// 	package->a->pin = package->a->top;
+	// 	while (package->a->pin >= 0)
+	// 	{
+	// 		get_closest(package);
+	// 		get_directions(package);
+	// 		get_individual_cost(package);
+	// 		get_compared_cost(package);
+	// 		is_current_best(package);
+	// 		package->a->pin--;
+	// 	}
+	// 	apply_move(package);
+	// }
 }
