@@ -53,7 +53,18 @@ void    get_directions(t_package *package)
 		package->current->bdir = 1;
 }
 
-void	get_individual_cost(t_package *package);
+void	get_individual_cost(t_package *package)
+{
+	if (package->current->adir)
+		package->current->acost = package->current->atop - package->current->apin;
+	if (!package->current->adir)
+		package->current->acost = package->current->apin + 1;
+	if (package->current->bdir)
+		package->current->bcost = package->current->btop - package->current->bpin;
+	if (!package->current->bdir)
+		package->current->bcost = package->current->bpin + 1;
+}
+
 void	get_compared_cost(t_package *package);
 void	is_current_best(t_package *package);
 void	apply_move(t_package *package);
