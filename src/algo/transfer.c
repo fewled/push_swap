@@ -37,7 +37,22 @@ void    get_closest(t_package *package)
 	package->b->pin = closest;
 }
 
-void    get_directions(t_package *package);
+void    get_directions(t_package *package)
+{
+	package->current->apin = package->a->pin;
+	package->current->bpin = package->b->pin;
+	package->current->aval = package->a->content[package->current->apin];
+	package->current->bval = package->b->content[package->current->bpin];
+	package->current->atop = package->a->top;
+	package->current->btop = package->b->top;
+	package->current->adir = 0;
+	if (package->current->apin > (package->current->atop / 2))
+		package->current->adir = 1;
+	package->current->bdir = 0;
+	if (package->current->bpin > (package->current->btop / 2))
+		package->current->bdir = 1;
+}
+
 void	get_individual_cost(t_package *package);
 void	get_compared_cost(t_package *package);
 void	is_current_best(t_package *package);
