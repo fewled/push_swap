@@ -16,8 +16,10 @@ void	sort(t_package *package)
 {
     inject(package);
 	transfer(package);
+	arrange(package);
+	printf("[i] Final status\n");
+	printf("[i] atop : %d\n", package->a->content[package->a->top]);
 	status(package);
-	// arrange(package);
 	// refill(package);
 	// adjust(package);
 }

@@ -94,6 +94,7 @@ void    transfer(t_package *package)
 {
 	while (package->a->top > 2)
 	{
+		status(package);
 		package->a->pin = package->a->top;
 		while (package->a->pin >= 0)
 		{
@@ -104,6 +105,7 @@ void    transfer(t_package *package)
 			compare_moves(package);
 			package->a->pin--;
 		}
+		printf("[i] Best to transfer : %d\n", package->best->aval);
 		apply_move(package);
 	}
 }
