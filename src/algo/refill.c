@@ -42,7 +42,10 @@ static void max_as_top(t_package *package)
 
 void	refill(t_package *package)
 {
+	printf("[i] Starting refillement...\n");
 	max_as_top(package);
 	while (package->b->top >= 0)
 		pa(package);
+	status(package);
+	printf("[+] Refillement done.\n");
 }

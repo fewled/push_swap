@@ -16,21 +16,30 @@ void arrange(t_package *package)
 {
 	int	*stack;
 
-	stack = package->a->content;
-    if (stack[2] > stack[1] && stack[1] < stack[0] && stack[2] < stack[0])
-        sa(package);
-    else if (stack[2] > stack[1] && stack[1] > stack[0] && stack[2] > stack[0])
-    {
-        sa(package);
-        rra(package);
-    }
-    else if (stack[2] > stack[1] && stack[1] < stack[0] && stack[2] > stack[0])
-        ra(package);
-    else if (stack[2] < stack[1] && stack[1] > stack[0] && stack[2] < stack[0])
-    {
-        sa(package);
-        ra(package);
-    }
-    else if (stack[2] < stack[1] && stack[1] > stack[0] && stack[2] > stack[0])
-        rra(package);
+	if (package->a->content[package->a->top] > package->a->content[0]
+		&& package->a->top < 2)
+	{
+		ra(package);
+		printf("%d\n", package->a->top);
+	}
+	else
+	{
+		stack = package->a->content;
+		if (stack[2] > stack[1] && stack[1] < stack[0] && stack[2] < stack[0])
+			sa(package);
+		else if (stack[2] > stack[1] && stack[1] > stack[0] && stack[2] > stack[0])
+		{
+			sa(package);
+			rra(package);
+		}
+		else if (stack[2] > stack[1] && stack[1] < stack[0] && stack[2] > stack[0])
+			ra(package);
+		else if (stack[2] < stack[1] && stack[1] > stack[0] && stack[2] < stack[0])
+		{
+			sa(package);
+			ra(package);
+		}
+		else if (stack[2] < stack[1] && stack[1] > stack[0] && stack[2] > stack[0])
+			rra(package);
+	}
 }

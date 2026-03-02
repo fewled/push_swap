@@ -92,9 +92,9 @@ static void	get_compared_cost(t_package *package)
 
 void    transfer(t_package *package)
 {
+	printf("[i] Starting transfer...\n");
 	while (package->a->top > 2)
 	{
-		status(package);
 		package->a->pin = package->a->top;
 		while (package->a->pin >= 0)
 		{
@@ -105,7 +105,8 @@ void    transfer(t_package *package)
 			compare_moves(package);
 			package->a->pin--;
 		}
-		printf("[i] Best to transfer : %d\n", package->best->aval);
 		apply_move(package);
+		status(package);
 	}
+	printf("[+] Transfer done.\n");
 }

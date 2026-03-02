@@ -39,7 +39,8 @@ ALGO		= 	src/algo/sort.c \
 				src/algo/transfer.c \
 				src/algo/transfer_helper.c \
 				src/algo/arrange.c \
-				src/algo/refill.c
+				src/algo/refill.c \
+				src/algo/adjust.c
 
 SRCS		=	src/main.c $(LIB) $(TYPES) $(TOOLS) $(OPERATIONS) $(ALGO)
 OBJS		= 	$(SRCS:.c=.o)
