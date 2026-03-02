@@ -108,9 +108,27 @@ void	is_current_best(t_package *package)
 		package->best->adir = package->current->adir;
 		package->best->bdir = package->current->bdir;
 	}
+	clean_move(package->current);
 }
 
-// void	apply_move(t_package *package);
+void    apply_same_direction(t_package *package);
+void    apply_opposite_direction(t_package *package);
+
+void	apply_move(t_package *package)
+{
+    t_move *move;
+
+    move = package->best;
+    if ((move->adir == move->bdir)
+        || ((move->bdir && (move->acost > (move->btop - move->bpin)))
+				|| (!move->bdir && (move->acost > (move->bpin + 1))))
+        || ((move->adir && (move->bcost > (move->atop - move->apin)))
+				|| (!move->adir && (move->bcost > (move->apin + 1)))))
+    {
+            // To complete...
+    }
+    clean_move(package->best);
+}
 
 void    transfer(t_package *package)
 {
