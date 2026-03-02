@@ -57,6 +57,7 @@ t_stack		*new_stack(int size);
 void		delete_stack(t_stack *stack);
 // ------------------------------------------------------------- MOVE
 t_move		*new_move();
+void		compare_moves(t_package *package);
 void		clean_move(t_move *move);
 void		delete_move(t_move *move);
 

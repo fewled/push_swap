@@ -22,6 +22,7 @@ TYPES		=	src/types/package/new_package.c \
 				src/types/stack/new_stack.c \
 				src/types/stack/delete_stack.c \
 				src/types/move/new_move.c \
+				src/types/move/compare_moves.c \
 				src/types/move/clean_move.c \
 				src/types/move/delete_move.c \
 
@@ -35,7 +36,8 @@ OPERATIONS	= 	src/operations/push.c \
 
 ALGO		= 	src/algo/sort.c \
 				src/algo/inject.c \
-				src/algo/transfer.c
+				src/algo/transfer.c \
+				src/algo/transfer_helper.c
 
 SRCS		=	src/main.c $(LIB) $(TYPES) $(TOOLS) $(OPERATIONS) $(ALGO)
 OBJS		= 	$(SRCS:.c=.o)

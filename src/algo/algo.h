@@ -14,13 +14,15 @@
 # define ALGO_H
 
 # include "../tools/tools.h"
-
+//		LAUNCHER
 void	sort(t_package *package);
-
+//		STEPS
 void	inject(t_package *package);
 void	transfer(t_package *package);
 void	arrange(t_package *package);
 void	refill(t_package *package);
 void	adjust(t_package *package);
+//		HELPER
+void	apply_move(t_package *package);
 
 #endif
