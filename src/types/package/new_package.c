@@ -57,9 +57,9 @@ t_package	*new_package(int arg_count, char **arg_list)
 		return ((t_package *)0);
 	if (arg_count == 2)
 	{
-		package->size = ft_count_words(arg_list[1]);
-		if (!(package->data = ft_split(arg_list[1])))
-			return (0);
+		if ((package->size = ft_count_words(arg_list[1]))
+		|| (!(package->data = ft_split(arg_list[1]))))
+			return ((t_package *)0);
 	}
 	else
 	{
@@ -68,6 +68,6 @@ t_package	*new_package(int arg_count, char **arg_list)
 	}
 	if (!(build_structs(package))
 		|| !(parse_content(package)))
-		return (delete_package(package, arg_count), (t_package *)0);
+		return ((t_package *)0);
 	return (package);
 }

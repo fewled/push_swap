@@ -30,4 +30,5 @@ void	delete_package(t_package *package, int arg_count)
 			free(package->data[index++]);
 		free(package->data);
 	}
+	free(package);
 }
