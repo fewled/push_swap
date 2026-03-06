@@ -24,5 +24,6 @@ void	refill(t_package *package);
 void	adjust(t_package *package);
 //		HELPER
 void	apply_move(t_package *package);
+int     is_compatible(t_move *move);
 
 #endif

@@ -12,40 +12,30 @@
 
 #include "algo.h"
 
-static void max_as_top(t_package *package)
-{
-	int	index;
-	int	max_index;
-	int	max_val;
-	int	max_dir;
-
-	index = package->b->top;
-	max_index = index;
-	while (index >= 0)
-	{
-		if (package->b->content[max_index] < package->b->content[index])
-			max_index = index;
-		index--;
-	}
-	max_val = package->b->content[max_index];
-	max_dir = 0;
-	if (max_index > (package->b->top / 2))
-		max_dir = 1;
-	while (package->b->content[package->b->top] != max_val)
-	{
-		if (max_dir)
-			rb(package);
-		if (!max_dir)
-			rrb(package);
-	}
-}
-
 void	refill(t_package *package)
 {
-	printf("[i] Starting refillement...\n");
-	max_as_top(package);
+	int	value;
+	int	index;
+	int	next;
+
 	while (package->b->top >= 0)
+	{
+		value = package->b->content[package->b->top];
+		index = package->a->top;
+		while (index >= 0)
+		{
+			if (index == 0)
+				next = package->a->content[package->a->top];
+			else
+				next = package->a->content[index - 1];
+			if ((package->a->content[index] < value && value < next)
+				|| (package->a->content[index] > next
+					&& (value > package->a->content[index] || value < next)))
+				break ;
+			index--;
+		}
+		while (package->a->content[package->a->top] != next)
+			ra(package);
 		pa(package);
-	status(package);
-	printf("[+] Refillement done.\n");
+	}
 }

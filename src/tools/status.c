@@ -16,7 +16,7 @@ void	status(t_package *package)
 {
 	int	index;
 
-	ft_putstr("-----------------------\n");	
+	ft_putstr("-----------------------------------------------------------\n");	
 	ft_putstr("A | ");
 	index = 0;
 	while (index <= package->a->top)
@@ -25,7 +25,7 @@ void	status(t_package *package)
 		ft_putstr(" ");
 	}
 	ft_putstr("\n");
-	ft_putstr("-----------------------\n");	
+	ft_putstr("-----------------------------------------------------------\n");	
 	ft_putstr("B | ");
 	index = 0;
 	while (index <= package->b->top)
@@ -34,5 +34,5 @@ void	status(t_package *package)
 		ft_putstr(" ");
 	}
 	ft_putstr("\n");
-	ft_putstr("-----------------------\n");	
+	ft_putstr("-----------------------------------------------------------\n");	
 }

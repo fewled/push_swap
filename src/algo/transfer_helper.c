@@ -12,7 +12,33 @@
 
 #include "algo.h"
 
-void	lead_by_a(t_package *package)
+int	is_compatible(t_move *move)
+{	
+	if (move->adir != move->bdir)
+	{
+		if (move->acost > move->bcost)
+		{
+			if (move->bdir)
+				if (move->acost > (move->bpin + 1))
+					return (1);
+			if (!move->bdir)
+				if (move->acost > (move->btop - move->bpin))
+					return (1);
+		}
+		if (move->acost < move->bcost)
+		{
+			if (move->adir)
+				if (move->bcost > (move->apin + 1))
+					return (1);
+			if (!move->adir)
+				if (move->bcost > (move->atop - move->apin))
+					return (1);
+		}
+	}
+	return (0);
+}
+
+static void	lead_by_a(t_package *package)
 {
 	t_move *move;
 
@@ -34,7 +60,7 @@ void	lead_by_a(t_package *package)
 
 }
 
-void	lead_by_b(t_package *package)
+static void	lead_by_b(t_package *package)
 {
 	t_move	*move;
 
@@ -55,7 +81,7 @@ void	lead_by_b(t_package *package)
 	}
 }
 
-void	no_lead(t_package *package)
+static void	no_lead(t_package *package)
 {
 	t_move	*move;
 
@@ -64,7 +90,7 @@ void	no_lead(t_package *package)
 	{
 		if (move->adir)
 			ra(package);
-		if (!move->bdir)
+		if (!move->adir)
 			rra(package);
 	}
 	while (package->b->content[move->btop] != move->bval)
@@ -81,20 +107,25 @@ void	apply_move(t_package *package)
 	t_move *move;
 
 	move = package->best;
-	if ((move->adir == move->bdir)
-		|| ((move->bdir && (move->acost > (move->btop - move->bpin)))
-			|| (!move->bdir && (move->acost > (move->bpin + 1))))
-		|| ((move->adir && (move->bcost > (move->atop - move->apin)))
-			|| (!move->adir && (move->bcost > (move->apin + 1)))))
+
+	if (move->adir == move->bdir)
 	{
-		if (move->acost > move->bcost)
+		if (move->acost >= move->bcost)
 			lead_by_a(package);
 		if (move->acost < move->bcost)
 			lead_by_b(package);
 	}
 	else
 	{
-		no_lead(package);
+		if (!is_compatible(package->best))
+			no_lead(package);
+		else
+		{
+			if (move->acost > move->bcost)
+				lead_by_a(package);
+			if (move->acost < move->bcost)
+				lead_by_b(package);
+		}
 	}
 	if (move->aval < move->bval)
 		rb(package);

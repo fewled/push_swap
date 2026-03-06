@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.h                                            :+:      :+:    :+:   */
+/*   final.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 18:12:13 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/27 11:37:23 by vpolard          ###   ########.fr       */
+/*   Created: 2026/03/06 16:28:29 by vpolard           #+#    #+#             */
+/*   Updated: 2026/03/06 16:28:30 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TOOLS_H
-# define TOOLS_H
+#include "tools.h"
 
-# include "../lib/lib.h"
-# include "../types/types.h"
-# include "../operations/operations.h"
+void    final(t_package *package)
+{
+    int index;
 
-void	suggest_hints();
-void	status(t_package *package);
-void    final(t_package *package);
-
-#endif
+    index = 0;
+    while (index <= package->a->top)
+    {
+        ft_putnbr(package->a->content[index++]);
+        ft_putstr(" ");
+    }
+    ft_putstr("\n");
+}

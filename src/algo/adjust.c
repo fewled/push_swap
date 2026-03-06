@@ -14,7 +14,6 @@
 
 void	adjust(t_package *package)
 {
-	printf("[i] Starting adjustement...\n");
 	int	min_index;
 	int	min_dir;
 	int	min_val;
@@ -39,6 +38,4 @@ void	adjust(t_package *package)
 		if (!min_dir)
 			rra(package);
 	}
-	status(package);
-	printf("[+] Adjustement done.\n");
 }

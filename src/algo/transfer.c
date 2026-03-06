@@ -56,13 +56,17 @@ static void    get_directions(t_package *package)
 static void	get_individual_cost(t_package *package)
 {
 	if (package->current->adir)
-		package->current->acost = package->current->atop - package->current->apin;
+		package->current->acost = package->current->atop
+			- package->current->apin;
 	if (!package->current->adir)
 		package->current->acost = package->current->apin + 1;
 	if (package->current->bdir)
-		package->current->bcost = package->current->btop - package->current->bpin;
+		package->current->bcost = package->current->btop
+			- package->current->bpin;
 	if (!package->current->bdir)
 		package->current->bcost = package->current->bpin + 1;
+	if (package->current->aval < package->current->bval)
+		package->current->bcost++;
 }
 
 static void	get_compared_cost(t_package *package)
@@ -74,25 +78,18 @@ static void	get_compared_cost(t_package *package)
 		move->cost = ft_biggest(move->acost, move->bcost);
 	else
 	{
-		if (move->acost > move->bcost)
-			if ((move->bdir && (move->acost > (move->btop - move->bpin)))
-				|| (!move->bdir && (move->acost > (move->bpin + 1))))
-				move->cost = move->acost;
-		if (move->acost < move->bcost)
-			if ((move->adir && (move->bcost > (move->atop - move->apin)))
-				|| (!move->adir && (move->bcost > (move->apin + 1))))
-				move->cost = move->bcost;
+		if (move->acost > move->bcost && is_compatible(package->current))
+			move->cost = move->acost;
+		if (move->acost < move->bcost && is_compatible(package->current))
+			move->cost = move->bcost;
 	}
 	if (!move->cost && (move->acost || move->bcost))
 		move->cost = move->acost + move->bcost;
-	if (move->aval < move->bval)
-		move->cost++;
 	move->cost++;
 }
 
 void    transfer(t_package *package)
 {
-	printf("[i] Starting transfer...\n");
 	while (package->a->top > 2)
 	{
 		package->a->pin = package->a->top;
@@ -106,7 +103,5 @@ void    transfer(t_package *package)
 			package->a->pin--;
 		}
 		apply_move(package);
-		status(package);
 	}
-	printf("[+] Transfer done.\n");
 }

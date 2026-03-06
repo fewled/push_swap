@@ -18,10 +18,7 @@ void arrange(t_package *package)
 
 	if (package->a->content[package->a->top] > package->a->content[0]
 		&& package->a->top < 2)
-	{
 		ra(package);
-		printf("%d\n", package->a->top);
-	}
 	else
 	{
 		stack = package->a->content;

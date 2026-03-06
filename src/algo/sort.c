@@ -19,5 +19,4 @@ void	sort(t_package *package)
 	arrange(package);
 	refill(package);
 	adjust(package);
-	status(package);
 }
