@@ -12,10 +12,10 @@
 
 #include "algo.h"
 
-void    inject(t_package *package)
-{
-    if (package->a->top >= 3)
-        pb(package);
-    if (package->a->top >= 4)
-        pb(package);
-}
+// void    inject(t_package *package)
+// {
+//     if (package->a->top >= 3)
+//         pb(package);
+//     if (package->a->top >= 4)
+//         pb(package);
+// }

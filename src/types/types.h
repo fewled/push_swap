@@ -17,12 +17,12 @@
 
 typedef struct	s_move
 {
-	int	atop;			// Top of stack a
+	int	abtm;			// Top of stack a
 	int	apin;			// Index of the best element to move in 'a'
 	int	adir;			// Direction of the best element to move in 'a'
 	int	acost;			// Cost to move the a pin element in place
 	int	aval;
-	int	btop;			// Top of stack b
+	int	bbtm;			// Top of stack b
 	int	bpin;			// Index of the best element to move in 'b'
 	int	bdir;			// Direction of the best element to move in 'b'
 	int	bcost;			// Cost to move the b pin element in place
@@ -34,7 +34,7 @@ typedef struct	s_stack
 {
 	int	*content;
 	int	pin;			// Index of currently examinated element
-	int	top;			// Index of the first element of the stack
+	int	btm;			// Index of the first element of the stack
 	int	direction;		// (Bool) Direction of the currently examinated element
 }		t_stack;
 

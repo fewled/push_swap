@@ -17,7 +17,7 @@ void    final(t_package *package)
     int index;
 
     index = 0;
-    while (index <= package->a->top)
+    while (index <= package->a->btm)
     {
         ft_putnbr(package->a->content[index++]);
         ft_putstr(" ");

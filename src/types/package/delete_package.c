@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:57:20 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/26 14:58:39 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/08 17:23:46 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,24 @@
 void	delete_package(t_package *package, int arg_count)
 {
 	int	index;
-	if (package->current)
-		delete_move(package->current);
-	if (package->best)
-		delete_move(package->best);
-	if (package->a)
-		delete_stack(package->a);
-	if (package->b)
-		delete_stack(package->b);
-	if (arg_count == 2)
+
+	if (package)
 	{
-		index = 0;
-		while (package->data[index])
-			free(package->data[index++]);
-		free(package->data);
+		if (package->current)
+			delete_move(package->current);
+		if (package->best)
+			delete_move(package->best);
+		if (package->a)
+			delete_stack(package->a);
+		if (package->b)
+			delete_stack(package->b);
+		if (arg_count == 2)
+		{
+			index = 0;
+			while (package->data[index])
+				free(package->data[index++]);
+			free(package->data);
+		}
+		free(package);
 	}
-	free(package);
 }

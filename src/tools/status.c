@@ -19,7 +19,7 @@ void	status(t_package *package)
 	ft_putstr("-----------------------------------------------------------\n");	
 	ft_putstr("A | ");
 	index = 0;
-	while (index <= package->a->top)
+	while (index <= package->a->btm)
 	{
 		ft_putnbr(package->a->content[index++]);
 		ft_putstr(" ");
@@ -28,7 +28,7 @@ void	status(t_package *package)
 	ft_putstr("-----------------------------------------------------------\n");	
 	ft_putstr("B | ");
 	index = 0;
-	while (index <= package->b->top)
+	while (index <= package->b->btm)
 	{
 		ft_putnbr(package->b->content[index++]);
 		ft_putstr(" ");

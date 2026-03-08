@@ -8,8 +8,8 @@ LIB			=	src/lib/ft_atoi.c \
 				src/lib/ft_isdigit.c \
 				src/lib/ft_isint.c \
 				src/lib/ft_isnum.c \
-				src/lib/ft_puterr.c \
 				src/lib/ft_putstr.c \
+				src/lib/ft_puterr.c \
 				src/lib/ft_strlen.c \
 				src/lib/ft_putnbr.c \
 				src/lib/ft_abs.c \

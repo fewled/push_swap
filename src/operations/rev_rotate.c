@@ -6,31 +6,33 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 18:58:16 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/08 18:35:05 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/08 16:25:58 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-static void    rev_rotate(t_stack *stack, int size)
+static void	rev_rotate(t_stack *stack, int size)
 {
-	int     *rotated;
-	int     index;
+	int	*new_content;
+	int	last;
+	int	index;
 
-	if (stack->top < 1)
+	if (stack->btm <= 0)
 		return ;
-	rotated = malloc(sizeof(int) * size);
-	if (!rotated)
+	new_content = malloc(sizeof(int) * size);
+	if (!new_content)
 		return (ft_puterr("[x] Failed allocation at rev_rotate."));
-	index = 0;
-	rotated[stack->top] = stack->content[index++];
-	while (index <= stack->top)
+	last = stack->content[stack->btm];
+	index = 1;
+	new_content[0] = last;
+	while (index <= stack->btm)
 	{
-		rotated[index - 1] = stack->content[index];
+		new_content[index] = stack->content[index - 1];
 		index++;
 	}
 	free(stack->content);
-	stack->content = rotated;
+	stack->content = new_content;
 }
 
 void	rra(t_package *package)

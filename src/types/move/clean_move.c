@@ -18,8 +18,8 @@ void	clean_move(t_move *move)
 	move->bdir = 0;
 	move->apin = 0;
 	move->bpin = 0;
-	move->atop = 0;
-	move->btop = 0;
+	move->abtm = 0;
+	move->bbtm = 0;
 	move->acost = 0;
 	move->bcost = 0;
 	move->aval = 0;

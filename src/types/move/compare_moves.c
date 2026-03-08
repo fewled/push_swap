@@ -22,8 +22,8 @@ void	compare_moves(t_package *package)
 		package->best->cost = package->current->cost;
 		package->best->apin = package->current->apin;
 		package->best->bpin = package->current->bpin;
-		package->best->atop = package->current->atop;
-		package->best->btop = package->current->btop;
+		package->best->abtm = package->current->abtm;
+		package->best->bbtm = package->current->bbtm;
 		package->best->aval = package->current->aval;
 		package->best->bval = package->current->bval;
 		package->best->adir = package->current->adir;

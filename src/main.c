@@ -22,7 +22,8 @@ int	main(int arg_count, char **arg_list)
 		return (1);
 	package = new_package(arg_count, arg_list);
 	if (!package)
-		return (delete_package(package, arg_count), suggest_hints(), 1);
+		return (delete_package(package, arg_count),
+			suggest_hints(), 1);
 	sort(package);
 	delete_package(package, arg_count);
 }

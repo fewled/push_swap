@@ -19,7 +19,7 @@ t_stack	*new_stack(int size)
 	if (!(new_stack = malloc(sizeof(t_stack)))
 		|| !(new_stack->content = malloc(sizeof(int) * size)))
 		return ((t_stack *)0);
-	new_stack->top = size - 1;
+	new_stack->btm = size - 1;
 	new_stack->direction = 0;
 	new_stack->pin = 0;
 	return (new_stack);

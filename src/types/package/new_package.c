@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:30:44 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/26 14:58:12 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/08 17:19:09 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,17 @@ static int	build_structs(t_package *package)
 		|| !(package->current = new_move())
 		|| !(package->best = new_move()))
 		return (0);
-	package->b->top = -1;
+	package->b->btm = -1;
 	return (1);
+}
+
+static void	prep_fields(t_package *package)
+{
+	package->data = (char **)0;
+	package->a = (t_stack *)0;
+	package->b = (t_stack *)0;
+	package->current = (t_move *)0;
+	package->best = (t_move *)0;	
 }
 
 t_package	*new_package(int arg_count, char **arg_list)
@@ -55,10 +64,12 @@ t_package	*new_package(int arg_count, char **arg_list)
 
 	if (!(package = malloc(sizeof(t_package))))
 		return ((t_package *)0);
+	prep_fields(package);
 	if (arg_count == 2)
 	{
-		if ((package->size = ft_count_words(arg_list[1]))
-		|| (!(package->data = ft_split(arg_list[1]))))
+		package->data = ft_split(arg_list[1]);
+		package->size = ft_count_words(arg_list[1]);
+		if (!package->data || package->size < 2)
 			return ((t_package *)0);
 	}
 	else

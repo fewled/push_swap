@@ -22,15 +22,15 @@
 void		ft_putstr(char *str);
 void		ft_putnbr(int n);
 void		ft_puterr(char *str);
-int		ft_strlen(char *str);
-int		ft_isdigit(char c);
-int		ft_isint(long long n);
-int		ft_isnum(char *str);
+int			ft_strlen(char *str);
+int			ft_isdigit(char c);
+int			ft_isint(long long n);
+int			ft_isnum(char *str);
 long long	ft_atoll(char *str);
-int		ft_atoi(char *str);
-int		ft_abs(int n);
-int		ft_biggest(int a, int b);
-int		ft_count_words(char *str);
+int			ft_atoi(char *str);
+int			ft_abs(int n);
+int			ft_biggest(int a, int b);
+int			ft_count_words(char *str);
 char		**ft_split(char *str);
 
 #endif

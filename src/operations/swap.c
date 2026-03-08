@@ -6,25 +6,21 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 18:57:56 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/08 18:39:52 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/08 15:57:22 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-static void    swap(t_stack *stack)
+static void	swap(t_stack *stack)
 {
-        int     *content;
-        int     top;
-        int     temp;
+	int	temp;
 
-        if (stack->top < 1)
-                return ;
-        content = stack->content;
-        top = stack->top;
-        temp = content[top];
-        content[top] = content[top - 1];
-        content[top - 1] = temp;
+	if (stack->btm <= 0)
+		return ;
+	temp = stack->content[0];
+	stack->content[0] = stack->content[1];
+	stack->content[1] = temp;
 }
 
 void	sa(t_package *package)

@@ -21,8 +21,8 @@ t_move	*new_move()
 	new_move->cost = 0;
 	new_move->acost = 0;
 	new_move->bcost = 0;
-	new_move->atop = 0;
-	new_move->btop = 0;
+	new_move->abtm = 0;
+	new_move->bbtm = 0;
 	new_move->apin = 0;
 	new_move->bpin = 0;
 	new_move->adir = 0;
