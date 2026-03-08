@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 09:46:44 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/08 18:05:39 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/08 18:28:40 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,37 +39,41 @@ static void    get_closest(t_package *package)
 
 static void    get_directions(t_package *package)
 {
-	package->current->apin = package->a->pin;
-	package->current->bpin = package->b->pin;
-	package->current->aval = package->a->content[package->current->apin];
-	package->current->bval = package->b->content[package->current->bpin];
-	package->current->abtm = package->a->btm;
-	package->current->bbtm = package->b->btm;
-	package->current->adir = 1;
-	if (package->current->apin > (package->current->abtm / 2))
-		package->current->adir = 0;
-	package->current->bdir = 1;
-	if (package->current->bpin > (package->current->bbtm / 2))
-		package->current->bdir = 0;
-}
+	t_move *move;
 
-/*
+	move = package->current;
+	move->apin = package->a->pin;
+	move->bpin = package->b->pin;
+	move->aval = package->a->content[move->apin];
+	move->bval = package->b->content[move->bpin];
+	move->abtm = package->a->btm;
+	move->bbtm = package->b->btm;
+	move->adir = 1;
+	if (move->apin > (move->abtm / 2))
+		move->adir = 0;
+	move->bdir = 1;
+	if (move->bpin > (move->bbtm / 2))
+		move->bdir = 0;
+}
 
 static void	get_individual_cost(t_package *package)
 {
-	if (package->current->adir)
-		package->current->acost = package->current->atop
-			- package->current->apin;
-	if (!package->current->adir)
-		package->current->acost = package->current->apin + 1;
-	if (package->current->bdir)
-		package->current->bcost = package->current->btop
-			- package->current->bpin;
-	if (!package->current->bdir)
-		package->current->bcost = package->current->bpin + 1;
-	if (package->current->aval < package->current->bval)
-		package->current->bcost++;
+	t_move *move;
+
+	move = package->current;
+	if (move->adir)
+		move->acost = move->apin;
+	if (!move->adir)
+		move->acost = move->abtm - move->apin + 1; 
+	if (move->bdir)
+		move->bcost = move->bpin;
+	if (!move->bdir)
+		move->bcost = move->bbtm - move->bpin + 1;
+	if (move->aval < move->bval)
+		move->bcost++;
 }
+
+/*
 
 static void	get_compared_cost(t_package *package)
 {
@@ -100,9 +104,13 @@ void    transfer(t_package *package)
 		package->a->content[package->a->pin],
 		package->b->content[package->b->pin]);
 	get_directions(package);
-	printf("[i] a->pin (%d) b->pin (%d)\n",
+	printf("[i] adir (%d) bdir (%d)\n",
 		package->current->adir,
 		package->current->bdir);
+	get_individual_cost(package);
+	printf("[i] acost (%d) bcost (%d)\n",
+		package->current->acost,
+		package->current->bcost);
 	/*
 	while (package->a->btm > 2)
 	{
