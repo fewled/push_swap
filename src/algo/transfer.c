@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 09:46:44 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/08 18:28:40 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/08 19:02:12 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ static void	get_individual_cost(t_package *package)
 		move->bcost++;
 }
 
-/*
-
 static void	get_compared_cost(t_package *package)
 {
 	t_move *move;
@@ -82,19 +80,17 @@ static void	get_compared_cost(t_package *package)
 	move = package->current;
 	if (move->adir == move->bdir)
 		move->cost = ft_biggest(move->acost, move->bcost);
-	else
+	if (is_compatible(package->current))
 	{
-		if (move->acost > move->bcost && is_compatible(package->current))
+		if (move->acost > move->bcost)
 			move->cost = move->acost;
-		if (move->acost < move->bcost && is_compatible(package->current))
+		if (move->acost < move->bcost)
 			move->cost = move->bcost;
 	}
 	if (!move->cost && (move->acost || move->bcost))
 		move->cost = move->acost + move->bcost;
 	move->cost++;
 }
-
-*/
 
 void    transfer(t_package *package)
 {
@@ -111,6 +107,8 @@ void    transfer(t_package *package)
 	printf("[i] acost (%d) bcost (%d)\n",
 		package->current->acost,
 		package->current->bcost);
+	get_compared_cost(package);
+	printf("[i] cost (%d)\n", package->current->cost);
 	/*
 	while (package->a->btm > 2)
 	{

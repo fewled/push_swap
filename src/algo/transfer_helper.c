@@ -6,13 +6,11 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 12:24:06 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/08 17:46:19 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/08 19:01:05 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
-
-/*
 
 int	is_compatible(t_move *move)
 {	
@@ -21,24 +19,26 @@ int	is_compatible(t_move *move)
 		if (move->acost > move->bcost)
 		{
 			if (move->bdir)
-				if (move->acost > (move->bpin + 1))
+				if (move->acost > (move->bbtm - move->bpin + 1))
 					return (1);
 			if (!move->bdir)
-				if (move->acost > (move->btop - move->bpin))
+				if (move->acost > (move->bpin))
 					return (1);
 		}
 		if (move->acost < move->bcost)
 		{
 			if (move->adir)
-				if (move->bcost > (move->apin + 1))
+				if (move->bcost > (move->abtm - move->apin + 1))
 					return (1);
 			if (!move->adir)
-				if (move->bcost > (move->atop - move->apin))
+				if (move->bcost > (move->apin))
 					return (1);
 		}
 	}
 	return (0);
 }
+
+/*
 
 static void	lead_by_a(t_package *package)
 {
