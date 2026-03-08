@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 09:46:44 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/08 17:57:35 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/08 18:05:39 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,23 @@ static void    get_closest(t_package *package)
 	package->b->pin = closest;
 }
 
-/*
-
 static void    get_directions(t_package *package)
 {
 	package->current->apin = package->a->pin;
 	package->current->bpin = package->b->pin;
 	package->current->aval = package->a->content[package->current->apin];
 	package->current->bval = package->b->content[package->current->bpin];
-	package->current->atop = package->a->top;
-	package->current->btop = package->b->top;
-	package->current->adir = 0;
-	if (package->current->apin > (package->current->atop / 2))
-		package->current->adir = 1;
-	package->current->bdir = 0;
-	if (package->current->bpin > (package->current->btop / 2))
-		package->current->bdir = 1;
+	package->current->abtm = package->a->btm;
+	package->current->bbtm = package->b->btm;
+	package->current->adir = 1;
+	if (package->current->apin > (package->current->abtm / 2))
+		package->current->adir = 0;
+	package->current->bdir = 1;
+	if (package->current->bpin > (package->current->bbtm / 2))
+		package->current->bdir = 0;
 }
+
+/*
 
 static void	get_individual_cost(t_package *package)
 {
@@ -90,8 +90,20 @@ static void	get_compared_cost(t_package *package)
 	move->cost++;
 }
 
+*/
+
 void    transfer(t_package *package)
 {
+	package->a->pin = package->a->btm;
+	get_closest(package);
+	printf("[i] %d (in a) is attached to %d (in b)\n",
+		package->a->content[package->a->pin],
+		package->b->content[package->b->pin]);
+	get_directions(package);
+	printf("[i] a->pin (%d) b->pin (%d)\n",
+		package->current->adir,
+		package->current->bdir);
+	/*
 	while (package->a->btm > 2)
 	{
 		package->a->pin = package->a->top;
@@ -106,6 +118,5 @@ void    transfer(t_package *package)
 		}
 		apply_move(package);
 	}
+	*/
 }
-
-*/
