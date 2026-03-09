@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:30:44 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/08 17:19:09 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 11:30:24 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ static int	parse_content(t_package *package)
 
 static int	build_structs(t_package *package)
 {
-	if (!(package->a = new_stack(package->size))
-		|| !(package->b = new_stack(package->size))
-		|| !(package->current = new_move())
-		|| !(package->best = new_move()))
+	package->a = new_stack(package->size);
+	package->b = new_stack(package->size);
+	package->current = new_move();
+	package->best = new_move();
+	if (!package->a || !package->b
+		|| !package->current || !package->best)
 		return (0);
 	package->b->btm = -1;
 	return (1);
@@ -55,14 +57,15 @@ static void	prep_fields(t_package *package)
 	package->a = (t_stack *)0;
 	package->b = (t_stack *)0;
 	package->current = (t_move *)0;
-	package->best = (t_move *)0;	
+	package->best = (t_move *)0;
 }
 
 t_package	*new_package(int arg_count, char **arg_list)
 {
 	t_package	*package;
 
-	if (!(package = malloc(sizeof(t_package))))
+	package = malloc(sizeof(t_package));
+	if (!package)
 		return ((t_package *)0);
 	prep_fields(package);
 	if (arg_count == 2)

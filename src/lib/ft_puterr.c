@@ -6,14 +6,14 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/08 16:12:31 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/08 16:12:32 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 11:24:08 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
 
-void    ft_puterr(char *str)
+void	ft_puterr(char *str)
 {
-    write(2, str, ft_strlen(str));
-    write(2, "\n", 1);
+	write(2, str, ft_strlen(str));
+	write(2, "\n", 1);
 }

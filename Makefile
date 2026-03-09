@@ -26,10 +26,6 @@ TYPES		=	src/types/package/new_package.c \
 				src/types/move/clean_move.c \
 				src/types/move/delete_move.c \
 
-TOOLS		= 	src/tools/suggest_hints.c \
-				src/tools/status.c \
-				src/tools/final.c
-
 OPERATIONS	= 	src/operations/push.c \
 				src/operations/swap.c \
 				src/operations/rotate.c \
@@ -43,7 +39,7 @@ ALGO		= 	src/algo/sort.c \
 				src/algo/refill.c \
 				src/algo/adjust.c
 
-SRCS		=	src/main.c $(LIB) $(TYPES) $(TOOLS) $(OPERATIONS) $(ALGO)
+SRCS		=	src/main.c $(LIB) $(TYPES) $(OPERATIONS) $(ALGO)
 OBJS		= 	$(SRCS:.c=.o)
 
 all: $(NAME)

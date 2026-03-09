@@ -6,13 +6,13 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 09:46:44 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/08 19:02:12 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 11:57:16 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
 
-static void    get_closest(t_package *package)
+static void	get_closest(t_package *package)
 {
 	int	closest;
 	int	min_diff;
@@ -21,12 +21,12 @@ static void    get_closest(t_package *package)
 
 	closest = 0;
 	min_diff = ft_abs(package->b->content[closest]
-		- package->a->content[package->a->pin]);
+			- package->a->content[package->a->pin]);
 	index = 0;
 	while (index <= package->b->btm)
 	{
 		current_diff = ft_abs(package->b->content[index]
-			- package->a->content[package->a->pin]);
+				- package->a->content[package->a->pin]);
 		if (current_diff < min_diff)
 		{
 			min_diff = current_diff;
@@ -37,9 +37,9 @@ static void    get_closest(t_package *package)
 	package->b->pin = closest;
 }
 
-static void    get_directions(t_package *package)
+static void	get_directions(t_package *package)
 {
-	t_move *move;
+	t_move	*move;
 
 	move = package->current;
 	move->apin = package->a->pin;
@@ -58,13 +58,13 @@ static void    get_directions(t_package *package)
 
 static void	get_individual_cost(t_package *package)
 {
-	t_move *move;
+	t_move	*move;
 
 	move = package->current;
 	if (move->adir)
 		move->acost = move->apin;
 	if (!move->adir)
-		move->acost = move->abtm - move->apin + 1; 
+		move->acost = move->abtm - move->apin + 1;
 	if (move->bdir)
 		move->bcost = move->bpin;
 	if (!move->bdir)
@@ -79,7 +79,7 @@ static void	get_individual_cost(t_package *package)
 
 static void	get_compared_cost(t_package *package)
 {
-	t_move *move;
+	t_move	*move;
 
 	move = package->current;
 	if (move->adir == move->bdir)
@@ -96,7 +96,7 @@ static void	get_compared_cost(t_package *package)
 	move->cost++;
 }
 
-void    transfer(t_package *package)
+void	transfer(t_package *package)
 {
 	while (package->a->btm > 2)
 	{

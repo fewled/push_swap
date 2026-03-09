@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 18:05:37 by vpolard           #+#    #+#             */
-/*   Updated: 2026/02/27 12:14:08 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 11:23:39 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdlib.h>
-# include <stdio.h> // --------------- TO REMOVE
-
 
 void		ft_putstr(char *str);
 void		ft_putnbr(int n);
