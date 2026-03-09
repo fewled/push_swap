@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 12:24:06 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/08 19:01:05 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 10:07:00 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,19 @@ int	is_compatible(t_move *move)
 	return (0);
 }
 
-/*
-
 static void	lead_by_a(t_package *package)
 {
 	t_move *move;
 
 	move = package->best;
-	while (package->b->content[move->btop] != move->bval)
+	while (package->b->content[0] != move->bval)
 	{
 		if (move->adir)
 			rr(package);
 		if (!move->adir)
 			rrr(package);
 	}
-	while (package->a->content[move->atop] != move->aval)
+	while (package->a->content[0] != move->aval)
 	{
 		if (move->adir)
 			ra(package);
@@ -61,6 +59,8 @@ static void	lead_by_a(t_package *package)
 	}
 
 }
+
+/*
 
 static void	lead_by_b(t_package *package)
 {
