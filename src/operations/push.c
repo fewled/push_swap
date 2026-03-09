@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 18:58:22 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/08 17:28:07 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 10:38:24 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	adjust_from(t_stack *stack, int size)
 	int	*new_content;
 	int	index;
 
-	if (stack->btm <= 0)
+	if (stack->btm < 0)
 		return ;
 	new_content = malloc(sizeof(int) * size);
 	if (!new_content)
@@ -38,7 +38,7 @@ static void	push(t_stack *from, t_stack *to, int size)
 	int	*new_content;
 	int	index;
 
-	if (from->btm <= 0)
+	if (from->btm < 0)
 		return ;
 	new_content = malloc(sizeof(int) * size);
 	if (!new_content)
