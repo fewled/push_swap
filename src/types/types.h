@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:28:41 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/09 11:35:28 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 12:20:42 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_package
 {
 	char	**data;
 	int		size;
+	int		argc;
 	t_move	*current;
 	t_move	*best;
 	t_stack	*a;

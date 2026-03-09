@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 15:48:10 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/09 12:13:36 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 12:32:51 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ void	refill(t_package *package)
 	while (package->b->btm >= 0)
 	{
 		value = package->b->content[0];
-		target_value = find_target_value(package->a, val);
-		target_index = find_target_index(package->a, t_val);
+		target_value = find_target_value(package->a, value);
+		target_index = find_target_index(package->a, target_value);
 		while (package->a->content[0] != target_value)
 		{
 			if (target_index <= package->a->btm / 2)

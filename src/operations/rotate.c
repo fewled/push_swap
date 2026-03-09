@@ -6,23 +6,23 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 18:58:06 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/08 16:24:33 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 12:27:45 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
-static void	rotate(t_stack *stack, int size)
+static int	rotate(t_stack *stack, int size)
 {
 	int	*new_content;
 	int	index;
 	int	first;
 
 	if (stack->btm <= 0)
-		return ;
+		return (1);
 	new_content = malloc(sizeof(int) * size);
 	if (!new_content)
-		return (ft_puterr("[x] Failed allocation at rotate."));
+		return (ft_puterr("[x] Failed allocation at rotate."), 0);
 	first = stack->content[0];
 	index = 0;
 	while (index <= stack->btm)
@@ -33,17 +33,20 @@ static void	rotate(t_stack *stack, int size)
 	new_content[stack->btm] = first;
 	free(stack->content);
 	stack->content = new_content;
+	return (1);
 }
 
 void	ra(t_package *package)
 {
-	rotate(package->a, package->size);
+	if (!rotate(package->a, package->size))
+		return (delete_package(package, package->argc));
 	ft_putstr("ra\n");
 }
 
 void	rb(t_package *package)
 {
-	rotate(package->b, package->size);
+	if (!rotate(package->b, package->size))
+		return (delete_package(package, package->argc));
 	ft_putstr("rb\n");
 }
 

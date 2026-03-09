@@ -6,12 +6,15 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 12:09:11 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/09 12:14:35 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 12:32:27 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ALGO_H
 # define ALGO_H
+
+#include "../types/types.h"
+#include "../operations/operations.h"
 
 void	sort(t_package *package);
 void	inject(t_package *package);

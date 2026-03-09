@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 18:58:22 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/09 10:38:24 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 12:25:36 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ static void	adjust_from(t_stack *stack, int size)
 	stack->content = new_content;
 }
 
-static void	push(t_stack *from, t_stack *to, int size)
+static int	push(t_stack *from, t_stack *to, int size)
 {
 	int	*new_content;
 	int	index;
 
 	if (from->btm < 0)
-		return ;
+		return (1);
 	new_content = malloc(sizeof(int) * size);
 	if (!new_content)
-		return (ft_puterr("[x] Failed allocation at push."));
+		return (ft_puterr("[x] Failed allocation at push."), 0);
 	new_content[0] = from->content[0];
 	adjust_from(from, size);
 	index = 1;
@@ -54,16 +54,19 @@ static void	push(t_stack *from, t_stack *to, int size)
 	}
 	free(to->content);
 	to->content = new_content;
+	return (1);
 }
 
 void	pa(t_package *package)
 {
-	push(package->b, package->a, package->size);
+	if (!push(package->b, package->a, package->size))
+		return (delete_package(package, package->argc));
 	ft_putstr("pa\n");
 }
 
 void	pb(t_package *package)
 {
-	push(package->a, package->b, package->size);
+	if (!push(package->a, package->b, package->size))
+		return (delete_package(package, package->argc));
 	ft_putstr("pb\n");
 }
