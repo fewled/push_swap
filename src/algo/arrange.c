@@ -6,37 +6,31 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 13:04:16 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/02 13:04:28 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 10:25:25 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "algo.h"
 
-// void arrange(t_package *package)
-// {
-// 	int	*stack;
+void arrange(t_package *package)
+{
+    int *s;
 
-// 	if (package->a->content[package->a->top] > package->a->content[0]
-// 		&& package->a->top < 2)
-// 		ra(package);
-// 	else
-// 	{
-// 		stack = package->a->content;
-// 		if (stack[2] > stack[1] && stack[1] < stack[0] && stack[2] < stack[0])
-// 			sa(package);
-// 		else if (stack[2] > stack[1] && stack[1] > stack[0] && stack[2] > stack[0])
-// 		{
-// 			sa(package);
-// 			rra(package);
-// 		}
-// 		else if (stack[2] > stack[1] && stack[1] < stack[0] && stack[2] > stack[0])
-// 			ra(package);
-// 		else if (stack[2] < stack[1] && stack[1] > stack[0] && stack[2] < stack[0])
-// 		{
-// 			sa(package);
-// 			ra(package);
-// 		}
-// 		else if (stack[2] < stack[1] && stack[1] > stack[0] && stack[2] > stack[0])
-// 			rra(package);
-// 	}
-// }
+    s = package->a->content;
+    if (s[0] > s[1] && s[1] < s[2] && s[0] < s[2])
+        sa(package);
+    else if (s[0] > s[1] && s[1] > s[2] && s[0] > s[2])
+    {
+        sa(package);
+        rra(package);
+    }
+    else if (s[0] > s[1] && s[1] < s[2] && s[0] > s[2])
+        ra(package);
+    else if (s[0] < s[1] && s[1] > s[2] && s[0] < s[2])
+    {
+        sa(package);
+        ra(package);
+    }
+    else if (s[0] < s[1] && s[1] > s[2] && s[0] > s[2])
+        rra(package);
+}
