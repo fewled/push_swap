@@ -102,8 +102,6 @@ static void	no_lead(t_package *package)
 	}
 }
 
-/*
-
 void	apply_move(t_package *package)
 {
 	t_move *move;
@@ -134,5 +132,3 @@ void	apply_move(t_package *package)
 	pb(package);
 	clean_move(package->best);
 }
-
-*/
