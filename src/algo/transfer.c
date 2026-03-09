@@ -23,7 +23,7 @@ static void    get_closest(t_package *package)
 	min_diff = ft_abs(package->b->content[closest]
 		- package->a->content[package->a->pin]);
 	index = 0;
-	while (index >= package->b->btm)
+	while (index <= package->b->btm)
 	{
 		current_diff = ft_abs(package->b->content[index]
 			- package->a->content[package->a->pin]);
@@ -71,6 +71,10 @@ static void	get_individual_cost(t_package *package)
 		move->bcost = move->bbtm - move->bpin + 1;
 	if (move->aval < move->bval)
 		move->bcost++;
+	if (move->abtm == 0)
+		move->acost = 0;
+	if (move->bbtm == 0)
+		move->bcost = 0;
 }
 
 static void	get_compared_cost(t_package *package)

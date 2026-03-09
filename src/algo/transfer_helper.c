@@ -19,19 +19,19 @@ int	is_compatible(t_move *move)
 		if (move->acost > move->bcost)
 		{
 			if (move->bdir)
-				if (move->acost > (move->bbtm - move->bpin + 1))
+				if (move->acost > (move->bbtm - move->bpin))
 					return (1);
 			if (!move->bdir)
-				if (move->acost > (move->bpin))
+				if (move->acost > (move->bpin + 1))
 					return (1);
 		}
 		if (move->acost < move->bcost)
 		{
 			if (move->adir)
-				if (move->bcost > (move->abtm - move->apin + 1))
+				if (move->bcost > (move->abtm - move->apin))
 					return (1);
 			if (!move->adir)
-				if (move->bcost > (move->apin))
+				if (move->bcost > (move->apin + 1))
 					return (1);
 		}
 	}
