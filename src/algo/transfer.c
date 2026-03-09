@@ -98,35 +98,18 @@ static void	get_compared_cost(t_package *package)
 
 void    transfer(t_package *package)
 {
-	package->a->pin = package->a->btm;
-	get_closest(package);
-	printf("[i] %d (in a) is attached to %d (in b)\n",
-		package->a->content[package->a->pin],
-		package->b->content[package->b->pin]);
-	get_directions(package);
-	printf("[i] adir (%d) bdir (%d)\n",
-		package->current->adir,
-		package->current->bdir);
-	get_individual_cost(package);
-	printf("[i] acost (%d) bcost (%d)\n",
-		package->current->acost,
-		package->current->bcost);
-	get_compared_cost(package);
-	printf("[i] cost (%d)\n", package->current->cost);
-	/*
 	while (package->a->btm > 2)
 	{
-		package->a->pin = package->a->top;
-		while (package->a->pin >= 0)
+		package->a->pin = 0;
+		while (package->a->pin <= package->a->btm)
 		{
 			get_closest(package);
 			get_directions(package);
 			get_individual_cost(package);
 			get_compared_cost(package);
 			compare_moves(package);
-			package->a->pin--;
+			package->a->pin++;
 		}
 		apply_move(package);
 	}
-	*/
 }
