@@ -6,12 +6,19 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 17:29:48 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/09 11:26:53 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/09 12:46:29 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "types/types.h"
+#include "operations/operations.h"
 #include "algo/algo.h"
+
+void	mini_sort(t_package *package)
+{
+	if (package->a->content[0] > package->a->content[1])
+		sa(package);
+}
 
 int	main(int arg_count, char **arg_list)
 {
@@ -23,6 +30,9 @@ int	main(int arg_count, char **arg_list)
 	if (!package)
 		return (delete_package(package, arg_count),
 			write(2, "Error.\n", 7));
-	sort(package);
+	if (package->a->btm == 1)
+		mini_sort(package);
+	else
+		sort(package);
 	delete_package(package, arg_count);
 }
