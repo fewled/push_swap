@@ -43,6 +43,7 @@ typedef struct s_package
 	char	**data;
 	int		size;
 	int		argc;
+	int		status;
 	t_move	*current;
 	t_move	*best;
 	t_stack	*a;

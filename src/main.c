@@ -27,8 +27,9 @@ int	main(int arg_count, char **arg_list)
 	if (arg_count < 2)
 		return (1);
 	package = new_package(arg_count, arg_list);
-	if (!package)
-		return (delete_package(package, arg_count), 0);
+	if (!package || !package->status)
+		return (write(2, "Error.\n", 7),
+			delete_package(package, arg_count), 0);
 	if (package->a->btm == 1)
 		mini_sort(package);
 	else

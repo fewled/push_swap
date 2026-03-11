@@ -68,13 +68,14 @@ t_package	*new_package(int arg_count, char **arg_list)
 	package = malloc(sizeof(t_package));
 	if (!package)
 		return ((t_package *)0);
+	package->status = 1;
 	prep_fields(package, arg_count);
 	if (arg_count == 2)
 	{
 		package->data = ft_split(arg_list[1]);
 		package->size = ft_count_words(arg_list[1]);
 		if (!package->data || package->size < 2)
-			return ((t_package *)0);
+			return (package->status = 0, package);
 	}
 	else
 	{
@@ -83,6 +84,6 @@ t_package	*new_package(int arg_count, char **arg_list)
 	}
 	if (!(build_structs(package))
 		|| !(parse_content(package)))
-		return ((t_package *)0);
-	return (package);
+			return (package->status = 0, package);
+	return (package->status = 1, package);
 }
