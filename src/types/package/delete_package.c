@@ -16,21 +16,26 @@ void	delete_package(t_package *package, int arg_count)
 {
 	int	index;
 
-	if (arg_count == 2)
+	if (!package)
+		write(2, "Error.\n", 7);
+	if (package)
 	{
-		index = 0;
-		while (package->data[index])
-			free(package->data[index++]);
-		free(package->data);
+		if (arg_count == 2)
+		{
+			index = 0;
+			while (package->data[index])
+				free(package->data[index++]);
+			free(package->data);
+		}
+		if (package->current)
+			delete_move(package->current);
+		if (package->best)
+			delete_move(package->best);
+		if (package->a)
+			delete_stack(package->a);
+		if (package->b)
+			delete_stack(package->b);
+		free(package);
 	}
-	if (package->current)
-		delete_move(package->current);
-	if (package->best)
-		delete_move(package->best);
-	if (package->a)
-		delete_stack(package->a);
-	if (package->b)
-		delete_stack(package->b);
-	free(package);
 	exit(0);
 }
