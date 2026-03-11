@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:30:44 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/09 12:22:05 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/11 12:54:08 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ t_package	*new_package(int arg_count, char **arg_list)
 	}
 	if (!(build_structs(package))
 		|| !(parse_content(package)))
-			return (package->status = 0, package);
+		return (package->status = 0, package);
 	return (package->status = 1, package);
 }

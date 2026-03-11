@@ -24,10 +24,10 @@ static int	rotate(t_stack *stack, int size)
 	if (!new_content)
 		return (ft_puterr("[x] Failed allocation at rotate."), 0);
 	first = stack->content[0];
-	index = 0;
+	index = 1;
 	while (index <= stack->btm)
 	{
-		new_content[index] = stack->content[index + 1];
+		new_content[index - 1] = stack->content[index];
 		index++;
 	}
 	new_content[stack->btm] = first;
