@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:57:20 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/09 12:29:57 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/11 11:12:10 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	delete_package(t_package *package, int arg_count)
 {
 	int	index;
 
+	if (!package)
+		write(2, "Error.\n", 7);
 	if (package)
 	{
 		if (package->current)
