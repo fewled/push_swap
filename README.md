@@ -36,13 +36,13 @@ push-swap
 As an object-oriented program could be structured, there is : 
 - A `package` used to manipulate conditionize and validate arguments.
 - Some `stack`s build up from `package`'s data to sort arguments.
-- Some `move`s that stores data under observation to emulate the execution of an operation
+- Some `move`s that stores data under observation to emulate the execution of an operation.
 
-# Instructions
+### Instructions
 
 ```bash
-$ git clone <repository_address> push_swap_correction
-$ cd push_swap_correction
+$ git clone <repository_address> <folder_name>
+$ cd <folder_name>
 $ make
 $ ./push_swap <arg_one> <arg_two> <...> # e.g. 81 7 63 1 98 23 42 4 17 12 91
 ```
