@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "lib/lib.h"
 #include "types/types.h"
 #include "operations/operations.h"
 #include "algo/algo.h"
@@ -21,7 +22,7 @@ int	is_sorted(t_package *package)
 	if (package->a->btm > 0)
 	{
 		index = 1;
-		while (index < package->a->btm)
+		while (index <= package->a->btm)
 		{
 			if (package->a->content[index - 1] > package->a->content[index])
 				return (0);
