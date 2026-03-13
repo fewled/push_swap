@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lib/lib.h"
 #include "types/types.h"
 #include "operations/operations.h"
 #include "algo/algo.h"
