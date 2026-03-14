@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 17:29:48 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/11 11:13:11 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/14 11:44:28 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int	main(int arg_count, char **arg_list)
 		mini_sort(package);
 	else
 		sort(package);
+	status(package);
 	delete_package(package, arg_count);
 }

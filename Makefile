@@ -19,6 +19,7 @@ LIB			=	src/lib/ft_atoi.c \
 
 TYPES		=	src/types/package/new_package.c \
 				src/types/package/delete_package.c \
+				src/types/package/status.c \
 				src/types/stack/new_stack.c \
 				src/types/stack/delete_stack.c \
 				src/types/move/new_move.c \

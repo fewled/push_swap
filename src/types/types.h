@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:28:41 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/09 12:20:42 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/14 11:40:08 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ t_move		*new_move(void);
 void		compare_moves(t_package *package);
 void		clean_move(t_move *move);
 void		delete_move(t_move *move);
+void		status(t_package *package);
 
 #endif
