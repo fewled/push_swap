@@ -14,9 +14,15 @@
 
 void	sort(t_package *package)
 {
+	status(package);
 	inject(package);
+	status(package);
 	transfer(package);
+	status(package);
 	arrange(package);
+	status(package);
 	refill(package);
+	status(package);
 	adjust(package);
+	status(package);
 }

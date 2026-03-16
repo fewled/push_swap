@@ -54,6 +54,5 @@ int	main(int arg_count, char **arg_list)
 		mini_sort(package);
 	else
 		sort(package);
-	status(package);
 	delete_package(package, arg_count);
 }

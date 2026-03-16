@@ -30,7 +30,7 @@ void	status(t_package *package)
 	index = 0;
 	while (index <= package->b->btm)
 	{
-		ft_putnbr(package->a->content[index++]);
+		ft_putnbr(package->b->content[index++]);
 		ft_putstr(" ");
 	}
 	ft_putstr("\n");
