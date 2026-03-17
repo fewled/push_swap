@@ -12,61 +12,40 @@
 
 #include "operations.h"
 
-static void	adjust_from(t_stack *stack, int size)
+void	push(t_stack *from, t_stack *to)
 {
-	int	*new_content;
 	int	index;
+	int	value;
 
-	if (stack->btm < 0)
-		return ;
-	new_content = malloc(sizeof(int) * size);
-	if (!new_content)
-		return (ft_puterr("[x] Failed allocation at push."));
-	index = 0;
-	stack->btm--;
-	while (index <= stack->btm)
+	if (from->btm >= 0)
 	{
-		new_content[index] = stack->content[index + 1];
-		index++;
+		value = from->content[0];
+		index = 1;
+		while (index <= from->btm)
+		{
+			from->content[index - 1] = from->content[index];
+			index++;
+		}
+		from->btm--;
+		to->btm++;
+		index = to->btm;
+		while (index > 0)
+		{
+			to->content[index] = to->content[index - 1];
+			index--;
+		}
+		to->content[0] = value;
 	}
-	free(stack->content);
-	stack->content = new_content;
-}
-
-static int	push(t_stack *from, t_stack *to, int size)
-{
-	int	*new_content;
-	int	index;
-
-	if (from->btm < 0)
-		return (1);
-	new_content = malloc(sizeof(int) * size);
-	if (!new_content)
-		return (ft_puterr("[x] Failed allocation at push."), 0);
-	new_content[0] = from->content[0];
-	adjust_from(from, size);
-	index = 1;
-	to->btm++;
-	while (index <= to->btm)
-	{
-		new_content[index] = to->content[index - 1];
-		index++;
-	}
-	free(to->content);
-	to->content = new_content;
-	return (1);
 }
 
 void	pa(t_package *package)
 {
-	if (!push(package->b, package->a, package->size))
-		return (delete_package(package, package->argc));
+	push(package->b, package->a);
 	ft_putstr("pa\n");
 }
 
 void	pb(t_package *package)
 {
-	if (!push(package->a, package->b, package->size))
-		return (delete_package(package, package->argc));
+	push(package->a, package->b);
 	ft_putstr("pb\n");
 }

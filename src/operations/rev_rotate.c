@@ -12,46 +12,39 @@
 
 #include "operations.h"
 
-static int	rev_rotate(t_stack *stack, int size)
+static void	rev_rotate(t_stack *stack)
 {
-	int	*new_content;
+	int	last_value;
 	int	index;
 
 	if (stack->btm > 0)
 	{
-		new_content = malloc(sizeof(int) * size);
-		if (!new_content)
-			return (0);
-		new_content[0] = stack->content[stack->btm];
-		index = 1;
-		while (index <= stack->btm)
+		last_value = stack->content[stack->btm];
+		index = stack->btm;
+		while (index > 0)
 		{
-			new_content[index] = stack->content[index - 1];
-			index++;
+			stack->content[index] = stack->content[index - 1];
+			index--;
 		}
-		free(stack->content);
-		stack->content = new_content;
+		stack->content[0] = last_value;
 	}
-	return (1);
 }
 
 void	rra(t_package *package)
 {
-	if (!rev_rotate(package->a, package->size))
-		return (delete_package(package, package->argc));
+	rev_rotate(package->a);
 	ft_putstr("rra\n");
 }
 
 void	rrb(t_package *package)
 {
-	if (!rev_rotate(package->b, package->size))
-		return (delete_package(package, package->argc));
+	rev_rotate(package->b);
 	ft_putstr("rrb\n");
 }
 
 void	rrr(t_package *package)
 {
-	rev_rotate(package->a, package->size);
-	rev_rotate(package->b, package->size);
+	rev_rotate(package->a);
+	rev_rotate(package->b);
 	ft_putstr("rrr\n");
 }

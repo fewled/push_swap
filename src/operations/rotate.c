@@ -15,13 +15,13 @@
 static void	rotate(t_stack *stack)
 {
 	int	value;
-	int index;
+	int	index;
 
 	if (stack->btm > 0)
 	{
 		value = stack->content[0];
 		index = 1;
-		while (index < stack->btm)
+		while (index <= stack->btm)
 		{
 			stack->content[index - 1] = stack->content[index];
 			index++;
@@ -46,5 +46,5 @@ void	rr(t_package *package)
 {
 	rotate(package->a);
 	rotate(package->b);
-	ft_putstr("rrr\n");
+	ft_putstr("rr\n");
 }

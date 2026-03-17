@@ -13,7 +13,7 @@
 #include "algo.h"
 
 int	is_compatible(t_move *move)
-{	
+{
 	if (move->adir != move->bdir)
 	{
 		if (move->acost > move->bcost)
