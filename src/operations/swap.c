@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 18:57:56 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/09 12:26:02 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/17 09:59:29 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ static void	swap(t_stack *stack)
 {
 	int	temp;
 
-	if (stack->btm <= 0)
-		return ;
-	temp = stack->content[0];
-	stack->content[0] = stack->content[1];
-	stack->content[1] = temp;
+	if (stack->btm > 0)
+	{
+		temp = stack->content[0];
+		stack->content[0] = stack->content[1];
+		stack->content[1] = temp;
+	}
 }
 
 void	sa(t_package *package)

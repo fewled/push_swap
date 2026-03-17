@@ -6,7 +6,7 @@
 /*   By: vpolard <vpolard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 17:52:48 by vpolard           #+#    #+#             */
-/*   Updated: 2026/03/09 11:36:13 by vpolard          ###   ########.fr       */
+/*   Updated: 2026/03/17 09:55:45 by vpolard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	sort(t_package *package)
 {
-	status(package);
+//	status(package);
 	inject(package);
-	status(package);
+//	status(package);
 	transfer(package);
-	status(package);
+//	status(package);
 	arrange(package);
-	status(package);
+//	status(package);
 	refill(package);
-	status(package);
+//	status(package);
 	adjust(package);
-	status(package);
+//	status(package);
 }
