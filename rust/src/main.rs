@@ -5,13 +5,7 @@ fn main() {
     match package {
         Ok(mut content) => {
             println!("{:?}", content);
-            content.sa();
-            println!("{:?}", content);
-            content.ra();
-            println!("{:?}", content);
-            content.rra();
-            println!("{:?}", content);
-            content.pb();
+            content.inject();
             println!("{:?}", content);
         }
         Err(msg) => println!("[x] {msg}."),
