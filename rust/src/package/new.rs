@@ -1,9 +1,11 @@
+use super::Stack;
 use super::parse::parse;
 use std::env::args;
 
 #[derive(Debug)]
 pub struct Package {
-    args: Vec<i32>,
+    a: Stack,
+    b: Stack,
 }
 
 impl Package {
@@ -18,7 +20,10 @@ impl Package {
             args = Err(String::from("Missing argument(s)"));
         }
         match args {
-            Ok(content) => Ok(Self { args: content }),
+            Ok(content) => Ok(Self {
+                a: Stack::new(Some(content)),
+                b: Stack::new(None),
+            }),
             Err(msg) => Err(msg),
         }
     }
