@@ -27,4 +27,10 @@ impl Package {
             Err(msg) => Err(msg),
         }
     }
+    pub fn get_a(&mut self) -> &mut Stack {
+        &mut self.a
+    }
+    pub fn get_b(&mut self) -> &mut Stack {
+        &mut self.b
+    }
 }

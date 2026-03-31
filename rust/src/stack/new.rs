@@ -26,4 +26,7 @@ impl Stack {
             },
         }
     }
+    pub fn get_content(&mut self) -> &mut Vec<i32> {
+        &mut self.content
+    }
 }
