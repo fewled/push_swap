@@ -1,2 +1,2 @@
 pub mod package;
-pub use package::Package;
+pub use package::new::Package;
