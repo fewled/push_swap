@@ -1,3 +1,5 @@
+use push_swap::Package;
+
 fn main() {
-    println!("Hello, world!");
+    let _package = Package::new();
 }
