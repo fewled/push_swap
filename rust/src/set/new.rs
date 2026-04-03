@@ -34,8 +34,14 @@ impl Set {
     pub fn set_cost(&mut self, new_cost: usize) {
         self.cost = new_cost;
     }
+    pub fn get_apin(&self) -> usize {
+        self.apin
+    }
     pub fn set_apin(&mut self, new_apin: usize) {
         self.apin = new_apin;
+    }
+    pub fn get_bpin(&self) -> usize {
+        self.bpin
     }
     pub fn set_bpin(&mut self, new_bpin: usize) {
         self.bpin = new_bpin;

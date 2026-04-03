@@ -14,7 +14,7 @@ impl Package {
         //         index += 1;
         //     }
         // }
-        self.get_closest(0)
+        self.get_closest(0).get_directions()
     }
 
     fn get_closest(&mut self, index: usize) -> &mut Self {
@@ -23,7 +23,7 @@ impl Package {
         let mut best_match: i32;
         let mut min_diff: i32;
         let mut min_index: usize;
-        let current_set: &mut Set;
+        let set: &mut Set;
 
         value = self.get_a().get_content()[index];
         content = self.get_b().get_content();
@@ -37,14 +37,29 @@ impl Package {
                 min_index = index;
             }
         }
-        current_set = self.get_current();
-        current_set.set_apin(index);
-        current_set.set_aval(value);
-        current_set.set_bpin(min_index);
-        current_set.set_bval(best_match);
+        set = self.get_current();
+        set.set_apin(index);
+        set.set_aval(value);
+        set.set_bpin(min_index);
+        set.set_bval(best_match);
         self
     }
-    fn _get_directions(&mut self) -> &mut Self {
+    fn get_directions(&mut self) -> &mut Self {
+        let a_size: usize;
+        let b_size: usize;
+        let set: &mut Set;
+
+        a_size = self.get_a().get_content().len();
+        b_size = self.get_b().get_content().len();
+        set = self.get_current();
+        set.set_adir(true);
+        if set.get_apin() > a_size / 2 {
+            set.set_adir(false);
+        }
+        set.set_bdir(true);
+        if set.get_bpin() > b_size / 2 {
+            set.set_bdir(false);
+        }
         self
     }
     fn _get_individual_cost(&mut self) -> &mut Self {
