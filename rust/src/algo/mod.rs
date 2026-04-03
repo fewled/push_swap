@@ -1,3 +1,3 @@
 pub mod inject;
 pub mod transfer;
-pub use super::Package;
+pub use super::{Package, Set};

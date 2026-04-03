@@ -4,9 +4,11 @@ fn main() {
     let package = Package::new();
     match package {
         Ok(mut content) => {
-            println!("{:?}", content);
+            println!("{:#?}", content);
             content.inject();
-            println!("{:?}", content);
+            println!("{:#?}", content);
+            content.transfer();
+            println!("{:#?}", content);
         }
         Err(msg) => println!("[x] {msg}."),
     }

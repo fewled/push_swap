@@ -1,11 +1,13 @@
-use super::Stack;
 use super::parse::parse;
+use super::{Set, Stack};
 use std::env::args;
 
 #[derive(Debug)]
 pub struct Package {
     a: Stack,
     b: Stack,
+    current: Set,
+    best: Set,
 }
 
 impl Package {
@@ -23,6 +25,8 @@ impl Package {
             Ok(content) => Ok(Self {
                 a: Stack::new(Some(content)),
                 b: Stack::new(None),
+                current: Set::new(),
+                best: Set::new(),
             }),
             Err(msg) => Err(msg),
         }
@@ -32,5 +36,11 @@ impl Package {
     }
     pub fn get_b(&mut self) -> &mut Stack {
         &mut self.b
+    }
+    pub fn get_current(&mut self) -> &mut Set {
+        &mut self.current
+    }
+    pub fn get_best(&mut self) -> &mut Set {
+        &mut self.best
     }
 }
