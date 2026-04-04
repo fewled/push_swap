@@ -6,8 +6,8 @@ impl Package {
         let mut target_index: usize;
         while self.b.content.len() > 0 {
             target_value = self.find_value(self.b.content[0]);
-            target_index = self.find_index(target_value);
             while self.a.content[0] != target_value {
+                target_index = self.find_index(target_value);
                 if target_index <= (self.a.content.len() - 1) / 2 {
                     self.ra();
                 } else {

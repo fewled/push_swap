@@ -19,7 +19,7 @@ impl Package {
         self
     }
     fn get_closest(&mut self, index: usize) -> &mut Self {
-        let mut min_diff: i32 = self.a.content[index] - self.b.content[0];
+        let mut min_diff: i32 = (self.a.content[index] - self.b.content[0]).abs();
         self.current.apin = index;
         self.current.aval = self.a.content[index];
         self.current.bpin = 0;
@@ -35,11 +35,11 @@ impl Package {
     }
     fn get_directions(&mut self) -> &mut Self {
         self.current.adir = true;
-        if self.current.apin > self.a.content.len() / 2 {
+        if self.current.apin > (self.a.content.len() - 1) / 2 {
             self.current.adir = false;
         }
-        self.current.bdir = false;
-        if self.current.bpin > self.b.content.len() / 2 {
+        self.current.bdir = true;
+        if self.current.bpin > (self.b.content.len() - 1) / 2 {
             self.current.bdir = false;
         }
         self
@@ -146,11 +146,8 @@ impl Package {
             }
         }
         while self.a.content[0] != self.best.aval {
-            match self.best.bdir {
-                true => {
-                    self.ra();
-                    self.debug();
-                }
+            match self.best.adir {
+                true => self.ra(),
                 false => self.rra(),
             }
         }
