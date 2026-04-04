@@ -4,15 +4,7 @@ fn main() {
     let package = Package::new();
     match package {
         Ok(mut package) => {
-            package.debug();
-            package.inject();
-            package.debug();
-            package.transfer();
-            package.debug();
-            package.arrange();
-            package.debug();
-            package.refill();
-            package.debug();
+            package.inject().transfer().arrange().refill().adjust();
         }
         Err(msg) => println!("[x] {msg}."),
     }

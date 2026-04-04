@@ -14,7 +14,7 @@ impl Package {
                     .compare_moves();
                 index += 1;
             }
-            self.apply_move();
+            self.apply_best();
         }
         self
     }
@@ -116,7 +116,7 @@ impl Package {
         self.current.clean();
         self
     }
-    fn apply_move(&mut self) {
+    fn apply_best(&mut self) {
         if self.best.adir == self.best.bdir {
             if self.best.acost >= self.best.bcost {
                 self.lead_by_a();
