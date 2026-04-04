@@ -2,19 +2,20 @@ use super::Package;
 
 impl Package {
     pub fn transfer(&mut self) -> &mut Self {
-        // while self.get_a().get_content().len() > 3 {
-        // 	let mut index: usize = 0;
-        //     while index < self.get_a().get_content().len() {
-        //         self.get_closest(index)
-        //             .get_directions()
-        //             .get_individual_cost()
-        //             .get_compared_cost()
-        //             .compare_moves()
-        //             .apply_move();
-        //         index += 1;
-        //     }
-        // }
-        self.get_closest(0)
+        let mut index: usize;
+        while self.a.content.len() > 3 {
+            index = 0;
+            while index < self.a.content.len() {
+                self.get_closest(index)
+                    .get_directions()
+                    .get_individual_cost()
+                    .get_compared_cost()
+                    .compare_moves()
+                    .apply_move();
+                index += 1;
+            }
+        }
+        self
     }
 
     fn get_closest(&mut self, index: usize) -> &mut Self {
@@ -32,17 +33,33 @@ impl Package {
         }
         self
     }
-    fn _get_directions(&mut self) -> &mut Self {
+    fn get_directions(&mut self) -> &mut Self {
+        self.current.adir = true;
+        if self.current.apin > self.a.content.len() / 2 {
+            self.current.adir = false;
+        }
+        self.current.bdir = false;
+        if self.current.bpin > self.b.content.len() / 2 {
+            self.current.bdir = false;
+        }
         self
     }
-    fn _get_individual_cost(&mut self) -> &mut Self {
+    fn get_individual_cost(&mut self) -> &mut Self {
+        match self.current.adir {
+            true => self.current.acost = self.current.apin,
+            false => self.current.acost = self.a.content.len() - self.current.apin + 1,
+        }
+        match self.current.bdir {
+            true => self.current.bcost = self.current.bpin,
+            false => self.current.bcost = self.b.content.len() - self.current.bpin + 1,
+        }
         self
     }
-    fn _get_compared_cost(&mut self) -> &mut Self {
+    fn get_compared_cost(&mut self) -> &mut Self {
         self
     }
-    fn _compare_moves(&mut self) -> &mut Self {
+    fn compare_moves(&mut self) -> &mut Self {
         self
     }
-    fn _apply_move(&mut self) {}
+    fn apply_move(&mut self) {}
 }
