@@ -4,10 +4,10 @@ use std::env::args;
 
 #[derive(Debug)]
 pub struct Package {
-    a: Stack,
-    b: Stack,
-    current: Set,
-    best: Set,
+    pub(crate) a: Stack,
+    pub(crate) b: Stack,
+    pub(crate) current: Set,
+    pub(crate) best: Set,
 }
 
 impl Package {
@@ -30,17 +30,5 @@ impl Package {
             }),
             Err(msg) => Err(msg),
         }
-    }
-    pub fn get_a(&mut self) -> &mut Stack {
-        &mut self.a
-    }
-    pub fn get_b(&mut self) -> &mut Stack {
-        &mut self.b
-    }
-    pub fn get_current(&mut self) -> &mut Set {
-        &mut self.current
-    }
-    pub fn get_best(&mut self) -> &mut Set {
-        &mut self.best
     }
 }

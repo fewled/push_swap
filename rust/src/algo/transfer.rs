@@ -1,4 +1,4 @@
-use super::{Package, Set};
+use super::Package;
 
 impl Package {
     pub fn transfer(&mut self) -> &mut Self {
@@ -14,52 +14,25 @@ impl Package {
         //         index += 1;
         //     }
         // }
-        self.get_closest(0).get_directions()
+        self.get_closest(0)
     }
 
     fn get_closest(&mut self, index: usize) -> &mut Self {
-        let value: i32;
-        let content: &mut Vec<i32>;
-        let mut best_match: i32;
-        let mut min_diff: i32;
-        let mut min_index: usize;
-        let set: &mut Set;
-
-        value = self.get_a().get_content()[index];
-        content = self.get_b().get_content();
-        best_match = content[index];
-        min_diff = value - content[index];
-        min_index = 0;
-        for (index, element) in content.iter().enumerate() {
-            if (value - element).abs() < min_diff {
-                min_diff = (value - element).abs();
-                best_match = *element;
-                min_index = index;
+        let mut min_diff: i32 = self.a.content[index] - self.b.content[index];
+        self.current.apin = index;
+        self.current.aval = self.a.content[index];
+        self.current.bpin = 0;
+        self.current.bval = self.b.content[0];
+        for (pin, element) in self.b.content.iter().enumerate() {
+            if (self.a.content[index] - element).abs() < min_diff {
+                min_diff = (self.a.content[index] - element).abs();
+                self.current.bval = *element;
+                self.current.bpin = pin;
             }
         }
-        set = self.get_current();
-        set.set_apin(index);
-        set.set_aval(value);
-        set.set_bpin(min_index);
-        set.set_bval(best_match);
         self
     }
-    fn get_directions(&mut self) -> &mut Self {
-        let a_size: usize;
-        let b_size: usize;
-        let set: &mut Set;
-
-        a_size = self.get_a().get_content().len();
-        b_size = self.get_b().get_content().len();
-        set = self.get_current();
-        set.set_adir(true);
-        if set.get_apin() > a_size / 2 {
-            set.set_adir(false);
-        }
-        set.set_bdir(true);
-        if set.get_bpin() > b_size / 2 {
-            set.set_bdir(false);
-        }
+    fn _get_directions(&mut self) -> &mut Self {
         self
     }
     fn _get_individual_cost(&mut self) -> &mut Self {

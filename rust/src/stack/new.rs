@@ -1,32 +1,15 @@
 #[derive(Debug)]
-enum Direction {
-    Up,
-    Down,
-}
-
-#[derive(Debug)]
 pub struct Stack {
-    content: Vec<i32>,
-    direction: Direction,
-    pin: usize,
+    pub(crate) content: Vec<i32>,
 }
 
 impl Stack {
     pub fn new(list: Option<Vec<i32>>) -> Self {
         match list {
-            Some(content) => Self {
-                content,
-                direction: Direction::Up,
-                pin: 0,
-            },
+            Some(content) => Self { content },
             None => Self {
                 content: Vec::new(),
-                direction: Direction::Up,
-                pin: 0,
             },
         }
-    }
-    pub fn get_content(&mut self) -> &mut Vec<i32> {
-        &mut self.content
     }
 }
