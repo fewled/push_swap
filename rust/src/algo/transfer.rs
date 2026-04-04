@@ -1,4 +1,5 @@
-use super::Package;
+use super::{Package, Set};
+use std::cmp;
 
 impl Package {
     pub fn transfer(&mut self) -> &mut Self {
@@ -18,7 +19,7 @@ impl Package {
         self
     }
     fn get_closest(&mut self, index: usize) -> &mut Self {
-        let mut min_diff: i32 = self.a.content[index] - self.b.content[index];
+        let mut min_diff: i32 = self.a.content[index] - self.b.content[0];
         self.current.apin = index;
         self.current.aval = self.a.content[index];
         self.current.bpin = 0;
@@ -58,7 +59,47 @@ impl Package {
         self
     }
     fn get_compared_cost(&mut self) -> &mut Self {
+        if self.current.adir == self.current.bdir {
+            self.current.cost = cmp::max(self.current.acost, self.current.bcost);
+        } else if self.is_compatible(&self.current) {
+            if self.current.acost >= self.current.bcost {
+                self.current.cost = self.current.acost;
+            } else {
+                self.current.cost = self.current.bcost;
+            }
+        }
+        if self.current.cost == 0 && (self.current.acost > 0 || self.current.bcost > 0) {
+            self.current.cost = self.current.acost + self.current.bcost;
+        }
+        self.current.cost += 1;
         self
+    }
+    fn is_compatible(&self, set: &Set) -> bool {
+        if set.adir != set.bdir {
+            if set.acost > set.bcost {
+                if set.bdir {
+                    if set.acost > (self.b.content.len() - 1 - set.bpin) {
+                        return true;
+                    }
+                } else {
+                    if set.acost > set.bpin + 1 {
+                        return true;
+                    }
+                }
+            }
+            if set.acost < set.bcost {
+                if set.adir {
+                    if set.bcost > (self.a.content.len() - 1 - set.apin) {
+                        return true;
+                    }
+                } else {
+                    if set.bcost > set.apin + 1 {
+                        return true;
+                    }
+                }
+            }
+        }
+        false
     }
     fn compare_moves(&mut self) -> &mut Self {
         if self.current.cost < self.best.cost || self.best.cost == 0 {
@@ -74,5 +115,71 @@ impl Package {
         }
         self
     }
-    fn apply_move(&mut self) {}
+    fn apply_move(&mut self) {
+        if self.best.adir == self.best.bdir {
+            if self.best.acost >= self.best.bcost {
+                self.lead_by_a();
+            } else {
+                self.lead_by_b();
+            }
+        } else {
+            if self.best.acost > self.best.bcost && self.is_compatible(&self.best) {
+                self.lead_by_a();
+            } else if self.best.acost < self.best.bcost && self.is_compatible(&self.best) {
+                self.lead_by_b();
+            } else if !self.is_compatible(&self.best) {
+                self.no_lead();
+            }
+        }
+        if self.best.aval < self.best.bval {
+            self.rb();
+        }
+        self.pb();
+        self.best.clean();
+    }
+    fn lead_by_a(&mut self) {
+        while self.b.content[0] != self.best.bval {
+            match self.best.adir {
+                true => self.rr(),
+                false => self.rrr(),
+            }
+        }
+        while self.a.content[0] != self.best.aval {
+            match self.best.bdir {
+                true => {
+                    self.ra();
+                    self.debug();
+                }
+                false => self.rra(),
+            }
+        }
+    }
+    fn lead_by_b(&mut self) {
+        while self.a.content[0] != self.best.aval {
+            match self.best.bdir {
+                true => self.rr(),
+                false => self.rrr(),
+            }
+        }
+        while self.b.content[0] != self.best.bval {
+            match self.best.bdir {
+                true => self.rb(),
+                false => self.rrb(),
+            }
+        }
+    }
+    fn no_lead(&mut self) {
+        while self.a.content[0] != self.best.aval {
+            match self.best.adir {
+                true => self.ra(),
+                false => self.rra(),
+            }
+        }
+        while self.b.content[0] != self.best.bval {
+            match self.best.bdir {
+                true => self.rb(),
+                false => self.rrb(),
+            }
+        }
+    }
 }

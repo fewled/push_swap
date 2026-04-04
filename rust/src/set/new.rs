@@ -25,4 +25,15 @@ impl Set {
             bdir: false,
         }
     }
+    pub fn clean(&mut self) {
+        self.acost = 0;
+        self.bcost = 0;
+        self.cost = 0;
+        self.apin = 0;
+        self.bpin = 0;
+        self.aval = 0;
+        self.bval = 0;
+        self.adir = false;
+        self.adir = false;
+    }
 }
