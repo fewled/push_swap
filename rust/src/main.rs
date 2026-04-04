@@ -9,6 +9,10 @@ fn main() {
             package.debug();
             package.transfer();
             package.debug();
+            package.arrange();
+            package.debug();
+            package.refill();
+            package.debug();
         }
         Err(msg) => println!("[x] {msg}."),
     }

@@ -113,6 +113,7 @@ impl Package {
             self.best.adir = self.current.adir;
             self.best.bdir = self.current.bdir;
         }
+        self.current.clean();
         self
     }
     fn apply_move(&mut self) {
