@@ -35,8 +35,8 @@ The first one is using exactly two stacks. The other is using only the moves bel
   - Bring the top element to the bottom of the stack
 
 ### Versions
-- [C - Documentation](./c/README.md)
-- [Rust - Documentation](./rust/README.md)
+- [C - Documentation](./c/doc.md)
+- [Rust - Documentation](./rust/doc.md)
 
 ### Resources 
 - [Truk algorithm article](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
